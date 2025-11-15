@@ -12,8 +12,13 @@ compilation
 	https://www.geeksforgeeks.org/c/compiling-a-c-program-behind-the-scenes/
 
 makefile basics
+	https://make.mad-scientist.net/papers/rules-of-makefiles/
 	https://www.youtube.com/watch?v=ygoRdBBOdYU
 	https://www.lucavall.in/blog/crafting-clean-maintainable-understandable-makefile-for-c-project
+makefile relinks
+	https://unix.stackexchange.com/questions/26409/how-to-avoid-make-redoing-a-library
+	https://stackoverflow.com/questions/42718392/how-to-avoid-my-makefile-to-relink
+	https://stackoverflow.com/questions/52502399/what-does-it-mean-for-a-makefile-to-relink
 
 subdirectories and structure
 	https://www.lucavall.in/blog/how-to-structure-c-projects-my-experience-best-practices
@@ -48,6 +53,28 @@ printf - min 10
 conversoes
 	https://www.geeksforgeeks.org/c/number-system-conversion-in-c/
 	https://stackoverflow.com/questions/4629050/convert-an-int-to-ascii-character
+
+
+pointeiros para funcao
+	https://www.youtube.com/watch?v=_gTaWAdN7G8&t=2s
+	https://www.youtube.com/watch?v=naNqY-3Tha4 
+	https://stackoverflow.com/questions/840501/how-do-function-pointers-in-c-work
+
+implementation
+	https://medium.com/@HackerSa3edy/printf-the-art-of-crafting-a-custom-function-in-c-programming-a3e3ec06bdb8
+	https://delicious-caraway-75c.notion.site/How-to-write-your-printf-in-C-d4808647995045d7ad0c9716e0b287be
+	https://elgibbor.hashnode.dev/building-your-own-printf-in-c-a-step-by-step-guide
+	https://www.geeksforgeeks.org/c/how-to-write-your-own-printf-in-c/ 
+----------------------------------Practico---------------------------------------------- 
+
+Criacao Makefile
+	claude + 
+	https://stackoverflow.com/questions/7004702/how-can-i-create-a-makefile-for-c-projects-with-src-obj-and-bin-subdirectories
+	https://unix.stackexchange.com/questions/767435/help-with-makefile-for-c-program
+	https://cboard.cprogramming.com/c-programming/150667-makefile-problem%3B-create-obj-file-outside-src-folder.html
+	https://stackoverflow.com/questions/16344719/how-to-create-directory-if-needed
+	https://github.com/Surfi89/ft_printf/blob/main/Makefile
+	https://github.com/mcombeau/ft_printf/blob/main/Makefile
 
 
 
