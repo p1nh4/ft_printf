@@ -1,0 +1,54 @@
+
+printtf
+https://docs.google.com/spreadsheets/d/1La1HWX5JYf4UqSzziCftzQKsdVxhcoEZ9p0R0dmQCmk/edit?gid=1558717765#gid=1558717765
+
+tips for your project
+	https://www.youtube.com/watch?v=XjhL6WCvH-w
+	https://www.youtube.com/watch?v=LfIPVIsH4ZU
+	https://www.youtube.com/watch?v=wg1wZgCdJPA
+	https://www.youtube.com/watch?v=kjHDnUjaai4
+
+compilation
+	https://www.geeksforgeeks.org/c/compiling-a-c-program-behind-the-scenes/
+
+makefile basics
+	https://www.youtube.com/watch?v=ygoRdBBOdYU
+	https://www.lucavall.in/blog/crafting-clean-maintainable-understandable-makefile-for-c-project
+
+subdirectories and structure
+	https://www.lucavall.in/blog/how-to-structure-c-projects-my-experience-best-practices
+	https://www.youtube.com/watch?v=CRlqU9XzVr4
+	https://stackoverflow.com/questions/79105297/real-world-project-structure-with-c-and-h
+
+clean code 
+	https://gregorykelleher.com/program
+
+write functions with variables arguments lists
+	https://www.youtube.com/watch?v=S-ak715zIIE
+
+void ptr 
+	https://www.youtube.com/watch?v=Vd-4eGnBAK8
+
+funcoes variadicas 
+	https://daemoniolabs.wordpress.com/2012/09/09/criando-funcoes-com-numero-variavel-de-argumentos-em-c/
+	https://codare.aurelio.net/2007/05/23/c-cpp-funcoes-com-numero-variavel-de-parametros-stdargs/
+	https://terminalroot.com.br/2024/07/funcoes-variadicas-em-cpp.html
+
+funcoes variadicas e printf -- 6 paginas
+	https://www.vivaolinux.com.br/artigo/Linguagem-C-Funcoes-Variadicas/
+
+va_list
+	https://daemoniolabs.wordpress.com/2012/09/09/criando-funcoes-com-numero-variavel-de-argumentos-em-c/ -- bom
+	https://www.youtube.com/watch?v=oDC208zvsdg
+	https://softwareengineering.stackexchange.com/questions/232838/what-is-the-underlying-mechanism-behind-va-list-and-where-is-it-defined
+
+printf - min 10
+	https://www.youtube.com/watch?v=h3eN3-4XmP4
+
+conversoes
+	https://www.geeksforgeeks.org/c/number-system-conversion-in-c/
+	https://stackoverflow.com/questions/4629050/convert-an-int-to-ascii-character
+
+
+
+
