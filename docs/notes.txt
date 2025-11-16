@@ -25,19 +25,18 @@ subdirectories and structure
 	https://www.youtube.com/watch?v=CRlqU9XzVr4
 	https://stackoverflow.com/questions/79105297/real-world-project-structure-with-c-and-h
 
-clean code 
+clean code
 	https://gregorykelleher.com/program
 
 write functions with variables arguments lists
 	https://www.youtube.com/watch?v=S-ak715zIIE
 
-void ptr 
+void ptr
 	https://www.youtube.com/watch?v=Vd-4eGnBAK8
 
-funcoes variadicas 
+funcoes variadicas
 	https://daemoniolabs.wordpress.com/2012/09/09/criando-funcoes-com-numero-variavel-de-argumentos-em-c/
 	https://codare.aurelio.net/2007/05/23/c-cpp-funcoes-com-numero-variavel-de-parametros-stdargs/
-	https://terminalroot.com.br/2024/07/funcoes-variadicas-em-cpp.html
 
 funcoes variadicas e printf -- 6 paginas
 	https://www.vivaolinux.com.br/artigo/Linguagem-C-Funcoes-Variadicas/
@@ -57,18 +56,17 @@ conversoes
 
 pointeiros para funcao
 	https://www.youtube.com/watch?v=_gTaWAdN7G8&t=2s
-	https://www.youtube.com/watch?v=naNqY-3Tha4 
+	https://www.youtube.com/watch?v=naNqY-3Tha4
 	https://stackoverflow.com/questions/840501/how-do-function-pointers-in-c-work
 
 implementation
-	https://medium.com/@HackerSa3edy/printf-the-art-of-crafting-a-custom-function-in-c-programming-a3e3ec06bdb8
 	https://delicious-caraway-75c.notion.site/How-to-write-your-printf-in-C-d4808647995045d7ad0c9716e0b287be
 	https://elgibbor.hashnode.dev/building-your-own-printf-in-c-a-step-by-step-guide
-	https://www.geeksforgeeks.org/c/how-to-write-your-own-printf-in-c/ 
-----------------------------------Practico---------------------------------------------- 
+
+----------------------------------Practico----------------------------------------------
 
 Criacao Makefile
-	claude + 
+	claude +
 	https://stackoverflow.com/questions/7004702/how-can-i-create-a-makefile-for-c-projects-with-src-obj-and-bin-subdirectories
 	https://unix.stackexchange.com/questions/767435/help-with-makefile-for-c-program
 	https://cboard.cprogramming.com/c-programming/150667-makefile-problem%3B-create-obj-file-outside-src-folder.html
@@ -76,6 +74,7 @@ Criacao Makefile
 	https://github.com/Surfi89/ft_printf/blob/main/Makefile
 	https://github.com/mcombeau/ft_printf/blob/main/Makefile
 
-
+mini-printf
+	https://hackernoon.com/what-is-va_list-in-c-exploring-the-secrets-of-ft_printf
 
 

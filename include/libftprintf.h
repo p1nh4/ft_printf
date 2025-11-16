@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/15 20:49:41 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/15 20:51:59 by davidos-         ###   ########.fr       */
+/*   Created: 2025/11/16 15:36:31 by davidos-          #+#    #+#             */
+/*   Updated: 2025/11/16 17:28:43 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
-#include <stdarg.h>
+# include <stdarg.h>
+# include <unistd.h>
+# include "../lib/libft.h"
 
-int	ft_printf(const char *, ...);
+size_t		ft_print_int(const int n, va_list args);
+size_t		ft_print_str(const char *s, va_list args);
+size_t		ft_printf(const char *format, ...);
 
 #endif

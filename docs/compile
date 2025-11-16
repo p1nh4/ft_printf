@@ -1,0 +1,11 @@
+Componente,Categoria,Função
+cc,Compilador,Invoca o compilador C (geralmente GCC ou Clang) para iniciar o processo de compilação e ligação (linking).
+-Wall,Flag de Aviso,Ativa todos os avisos recomendados pelo compilador.
+-Wextra,Flag de Aviso,Ativa avisos adicionais que não estão incluídos em -Wall.
+-Werror,Flag de Aviso,"Transforma todos os avisos (warnings) em erros de compilação, forçando você a corrigi-los."
+src/ft_printf.c,Arquivo Fonte,O arquivo de código fonte que você deseja compilar.
+-Iinclude,Flag de Pré-Processamento,Diz ao compilador para procurar arquivos de cabeçalho (.h) na pasta include/.
+-Llib,Flag de Ligação (Linker),Diz ao linker para procurar bibliotecas estáticas ou dinâmicas na pasta lib/.
+-lft,Flag de Ligação (Linker),Diz ao linker para vincular o programa à biblioteca chamada libft.a (o lib inicial e o .a final são adicionados automaticamente).
+
+
