@@ -63,6 +63,9 @@ implementation
 	https://delicious-caraway-75c.notion.site/How-to-write-your-printf-in-C-d4808647995045d7ad0c9716e0b287be
 	https://elgibbor.hashnode.dev/building-your-own-printf-in-c-a-step-by-step-guide
 
+commits
+	https://walidezzat.hashnode.dev/printf-like-function
+
 ----------------------------------Practico----------------------------------------------
 
 Criacao Makefile
@@ -77,4 +80,10 @@ Criacao Makefile
 mini-printf
 	https://hackernoon.com/what-is-va_list-in-c-exploring-the-secrets-of-ft_printf
 
+refs:
+	https://medium.com/@priyanshugrv/build-your-own-printf-in-c-using-putchar-step-by-step-guide-c9bc29ef2efd
+	https://delicious-caraway-75c.notion.site/How-to-write-your-printf-in-C-d4808647995045d7ad0c9716e0b287be
+	https://elgibbor.hashnode.dev/building-your-own-printf-in-c-a-step-by-step-guide
+	https://thejat.in/blog/variadic-function-working-in-c
+	https://walidezzat.hashnode.dev/printf-like-function
 
