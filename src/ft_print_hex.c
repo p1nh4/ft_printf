@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 15:36:31 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/18 22:39:30 by davidos-         ###   ########.fr       */
+/*   Created: 2025/11/18 22:40:46 by davidos-          #+#    #+#             */
+/*   Updated: 2025/11/18 22:55:48 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include "../lib/libft.h"
+size_t	ft_print_hex(unsigned long int n)
+{
+	int	len;
+	int	temp;
+	int	*arr;
 
-size_t		ft_print_int(const int n, va_list args);
-size_t		ft_print_str(const char *s, va_list args);
-size_t		ft_print_ptr(const void *p, va_list args);
-size_t		ft_print_hex(unsigned long int n);
-size_t		ft_printf(const char *format, ...);
-
-#endif
+	*arr = 0;
+	temp = 0;
+	if (n == 0)
+		return (0);
+	while (n != 0)
+	{
+		temp = n % 16;
+		if (temp < 10)
+			*arr = '0' + temp;
+		else
+			*arr = '7' + temp;
+		n /= 16;
+		arr++;
+	}
+	len = ft_strlen(ft_itoa(arr));
+	while (len--)
+		ft_putchar_fd(*arr, 1);
+	len = ft_strlen(ft_itoa(arr));
+	return (len);
+}
