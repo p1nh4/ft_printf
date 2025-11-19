@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 22:40:46 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/18 22:55:48 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/19 22:51:02 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,30 @@
 
 size_t	ft_print_hex(unsigned long int n)
 {
-	int	len;
-	int	temp;
-	int	*arr;
+	int		digit;
+	int		i;
+	size_t	len;
+	char	*table;
+	char	buffer[sizeof(void *) * 2 + 1]; //array de char ajusta a sistemas 32-64bits + \0
 
-	*arr = 0;
-	temp = 0;
+	i = 0;
+	table = "0123456789abcdef";
 	if (n == 0)
-		return (0);
-	while (n != 0)
 	{
-		temp = n % 16;
-		if (temp < 10)
-			*arr = '0' + temp;
-		else
-			*arr = '7' + temp;
-		n /= 16;
-		arr++;
+		ft_putchar_fd('0', 1);
+		return (1);
 	}
-	len = ft_strlen(ft_itoa(arr));
-	while (len--)
-		ft_putchar_fd(*arr, 1);
-	len = ft_strlen(ft_itoa(arr));
+	while (n)
+	{
+		digit = n % 16;
+		buffer[i] = table[digit];
+		i++;
+		n /= 16;
+	}
+	len = i;
+	while (i--)
+	{
+		ft_putchar_fd(buffer[i], 1);
+	}
 	return (len);
 }
