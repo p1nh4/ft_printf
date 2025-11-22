@@ -87,3 +87,14 @@ refs:
 	https://thejat.in/blog/variadic-function-working-in-c
 	https://walidezzat.hashnode.dev/printf-like-function
 
+	https://github.com/hackerSa3edy/printf
+	https://github.com/Lv2Kode2Pwr/printf/blob/main/print_special_chars.c
+	https://github.com/edward0rtiz/printf
+
+print address hex
+	https://stackoverflow.com/questions/28795137/how-to-print-addresses-hex-values-in-upper-case-in-c
+	https://log2base2.com/c-questions/io/how-to-print-hexadecimal-in-c.html
+	https://medium.com/@ryan_forrester_/c-cout-in-hex-practical-guide-224db1748a3d
+
+bonus
+	https://docwiki.embarcadero.com/RADStudio/Sydney/en/Printf_Format_Specifiers

@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_num_rev.c                                 :+:      :+:    :+:   */
+/*   ft_print_percent.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/21 20:30:40 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/22 15:35:04 by davidos-         ###   ########.fr       */
+/*   Created: 2025/11/22 16:47:03 by davidos-          #+#    #+#             */
+/*   Updated: 2025/11/22 16:51:37 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_print_num_rev(long int num)
+size_t	ft_print_percent(char c)
 {
-	int			zeros;
-	long int	reverse;
+	int	len;
 
-	zeros = 0;
-	reverse = 0;
-	while (num > 0)
-	{
-		if (num % 10 == 0)
-			zeros++;
-		else
-			reverse = reverse * 10 + num % 10;
-		num /= 10;
-	}
-
-	while (reverse)
-	{
-		ft_putchar_fd(reverse % 10 + '0', 1);
-		reverse /= 10;
-	}
-	while (zeros--)
-		ft_putchar_fd('0', 1);
+	len = 0;
+	ft_putchar_fd(c, 1);
+	len += 1;
+	return (len);
 }
