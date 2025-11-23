@@ -6,11 +6,11 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:30:40 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/22 15:35:04 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/23 15:47:14 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_print_num_rev(long int num)
 {

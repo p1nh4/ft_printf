@@ -6,15 +6,24 @@ AR_FLAGS	:= -rcs
 SRC_DIR		:= src
 OBJ_DIR		:= obj
 LIB			:= lib
+LIBFT		:= $(LIB)/libft.a
 INCLUDE_DIR := include
-SRC 		:= $(SRC_DIR)/ft_printf.c
+SRC 		:= $(SRC_DIR)/ft_printf.c 			\
+			   $(SRC_DIR)/ft_print_str.c		\
+			   $(SRC_DIR)/ft_print_ptr.c		\
+			   $(SRC_DIR)/ft_print_int.c		\
+			   $(SRC_DIR)/ft_print_uint.c		\
+			   $(SRC_DIR)/ft_print_num_rev.c	\
+			   $(SRC_DIR)/ft_print_hex.c		\
+			   $(SRC_DIR)/ft_print_percent.c
 INCLUDES	:= -I$(INCLUDE_DIR) -I$(LIB)
 OBJ 		:= $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 RM := rm -f
 
 all : $(LIBFT) $(NAME)
 
-$(NAME) : $(OBJ) $(LIB)/libft.a
+$(NAME) : $(OBJ)
+	cp $(LIBFT) $(NAME)
 	$(AR) $(AR_FLAGS) $@ $^
 
 $(LIBFT) :
@@ -35,7 +44,7 @@ fclean : clean
 
 re : fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re
 
 
 

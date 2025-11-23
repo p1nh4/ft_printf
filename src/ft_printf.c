@@ -6,11 +6,11 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/22 16:51:51 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/23 15:46:27 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 size_t	ft_printf(const char *format, ...)
@@ -65,7 +65,7 @@ size_t	ft_printf(const char *format, ...)
 	//printf("%d\n", t_len);
 	return (t_len);
 }
-
+/*
 int	main(void)
 {
 	//print numbers and strings
@@ -111,4 +111,4 @@ int	main(void)
 	percent_len = 0;
 	percent_len = ft_printf("Este e o sinal %% e aqui igual %%\n");
 	ft_printf("Tamanho: %d\n",percent_len);
-}
+}*/
