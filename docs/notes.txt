@@ -80,6 +80,9 @@ Criacao Makefile
 mini-printf
 	https://hackernoon.com/what-is-va_list-in-c-exploring-the-secrets-of-ft_printf
 
+parametros funcoes const
+	https://softwareengineering.stackexchange.com/questions/204500/when-and-for-what-purposes-should-the-const-keyword-be-used-in-c-for-variables
+
 refs:
 	https://medium.com/@priyanshugrv/build-your-own-printf-in-c-using-putchar-step-by-step-guide-c9bc29ef2efd
 	https://delicious-caraway-75c.notion.site/How-to-write-your-printf-in-C-d4808647995045d7ad0c9716e0b287be
@@ -95,6 +98,10 @@ print address hex
 	https://stackoverflow.com/questions/28795137/how-to-print-addresses-hex-values-in-upper-case-in-c
 	https://log2base2.com/c-questions/io/how-to-print-hexadecimal-in-c.html
 	https://medium.com/@ryan_forrester_/c-cout-in-hex-practical-guide-224db1748a3d
+
+printf_conv
+	https://hector.dev.br/2021/09/15/ft-printf/
+	https://github.com/siemeris/ft_printf/blob/main/ft_printf_utils.c
 
 bonus
 	https://docwiki.embarcadero.com/RADStudio/Sydney/en/Printf_Format_Specifiers
