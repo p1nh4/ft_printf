@@ -1,6 +1,6 @@
 NAME 		:= libftprintf.a
 CC			:= cc
-C_FLAGS 	:= -Wall -Wextra -Werror
+C_FLAGS 	:= -Wall -Wextra -Werror -gdwarf-4
 AR			:= ar
 AR_FLAGS	:= -rcs
 SRC_DIR		:= src

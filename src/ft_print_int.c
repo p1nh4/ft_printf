@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 17:28:56 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/23 15:47:00 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/25 12:19:19 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ size_t	ft_print_int(const int n, va_list args)
 	str_n = ft_itoa(value);
 	ft_putstr_fd(str_n, 1);
 	len = ft_strlen(str_n);
+	free(str_n);
 	return (len);
 }
 /*converto o valor para int, logo iteramo pelos argumentos

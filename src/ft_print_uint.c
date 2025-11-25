@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:09:09 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/23 15:48:20 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/24 21:34:44 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 size_t	ft_print_uint(const unsigned int ptr)
 {
 	size_t			len;
-	unsigned  int	num;
+	//unsigned  int	num;
 	unsigned int	num_uint;
 
 	len = 1;
@@ -28,7 +28,7 @@ size_t	ft_print_uint(const unsigned int ptr)
 		ft_putchar_fd(0 + '0', 1);
 		return (1);
 	}
-	num = num_uint;
+	//num = num_uint;
 	/*while (num > 0)
 	{
 		num /= 10;

@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/23 15:46:27 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/25 12:49:18 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,12 @@ size_t	ft_printf(const char *format, ...)
 			if (*format == '%')
 				t_len += ft_print_percent('%');
 		}
-		else
+		else 
+		{
 			ft_putchar_fd(*format, 1);
-		format++;
-		t_len++;
+			format++;
+		}
+	//t_len++;
 	}
 	va_end(args);
 	//printf("%d\n", t_len);
