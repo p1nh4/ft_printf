@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/25 17:16:50 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/25 22:27:56 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,17 @@ size_t	ft_printf(const char *format, ...)
 
 	t_len = 0;
 	va_start(args, format);
-	if (format == ((void *)0) || *format == '\0' || ((*format == '%') && (*(format++) == '\0')))
+	if (format == ((void *)0) || *format == '\0' || ((*format == '%') && (*(format + 1) == '\0'))) //(format + 1) nao move o ptr, format++ sim 
 		return (0);
 	while (*format)
 	{
-		if (*format == '%' && ft_strchr("cspdiuxX%", (*(format + 1))))
+		if (*format == '%' && ft_strchr("cspdiuxX%", (*(++format))))
 			t_len += ft_printf_conv(*format, args);
 		else
+		{
 			ft_putchar_fd(*format, 1);
+			t_len++;
+		}
 		format++;
 	}
 	va_end(args);

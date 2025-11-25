@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 22:40:46 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/23 15:46:46 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/25 22:26:05 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ size_t	ft_print_hex(unsigned long int n, int flag)
 	len = i;
 	if (flag)
 	{
-		ft_putchar_fd('0', 1);
-		ft_putchar_fd('x', 1);
 		while (i--)
 		{
 			ft_putchar_fd(buffer[i], 1);
@@ -46,8 +44,6 @@ size_t	ft_print_hex(unsigned long int n, int flag)
 	}
 	else
 	{
-		ft_putchar_fd('0', 1);
-		ft_putchar_fd('X', 1);
 		while (i--)
 		{
 			ft_putchar_fd(ft_toupper(buffer[i]), 1);

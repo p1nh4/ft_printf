@@ -6,17 +6,19 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:30:40 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/23 15:47:14 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/25 22:05:59 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_num_rev(long int num)
+size_t	ft_print_num_rev(long int num)
 {
+	int			len;
 	int			zeros;
 	long int	reverse;
 
+	len = 0;
 	zeros = 0;
 	reverse = 0;
 	while (num > 0)
@@ -26,6 +28,7 @@ void	ft_print_num_rev(long int num)
 		else
 			reverse = reverse * 10 + num % 10;
 		num /= 10;
+		len++;
 	}
 
 	while (reverse)
@@ -35,4 +38,5 @@ void	ft_print_num_rev(long int num)
 	}
 	while (zeros--)
 		ft_putchar_fd('0', 1);
+	return (len);
 }
