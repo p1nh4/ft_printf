@@ -6,20 +6,17 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 16:44:29 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/23 15:48:08 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/25 16:31:52 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_print_str(const char *s, va_list args)
+size_t	ft_print_str(char *s)
 {
 	size_t	len;
-	char	*str;
 
-	str = (char *)s;
-	str = va_arg(args, char *);
-	ft_putstr_fd(str, 1);
+	ft_putstr_fd(s, 1);
 	len = ft_strlen(s);
 	return (len);
 }

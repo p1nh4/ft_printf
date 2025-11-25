@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/25 12:49:18 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/25 17:16:50 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,56 +15,22 @@
 
 size_t	ft_printf(const char *format, ...)
 {
-	int		num;
 	size_t	t_len;
 	va_list	args;
-//	char	*str;
-	int		lower_case;
-	int		upper_case;
 
-	num = 0;
 	t_len = 0;
-	lower_case = 1;
-	upper_case = 0;
 	va_start(args, format);
-	if (format == ((void *)0))
-		return (-1);
-	if (*format == '\0')
-		return (-1);
-	if (*format == '%' || (*(format + 1) == '\0'))
-		return (-1);
+	if (format == ((void *)0) || *format == '\0' || ((*format == '%') && (*(format++) == '\0')))
+		return (0);
 	while (*format)
 	{
-		if (*format == '%')
-		{
-			format++;
-
-			if (*format == 's')
-				t_len += ft_print_str(format, args);
-			if (*format == 'p')
-				t_len += ft_print_ptr(va_arg(args, void *));
-			if (*format == 'd')
-				t_len += ft_print_int(num, args);
-			if (*format == 'i')
-				t_len += ft_print_int(num, args);
-			if (*format == 'u')
-				t_len += ft_print_uint(va_arg(args, unsigned int));
-			if (*format == 'x')
-				t_len += ft_print_hex(va_arg(args, unsigned int), lower_case);
-			if (*format == 'X')
-				t_len += ft_print_hex(va_arg(args, unsigned int), upper_case);
-			if (*format == '%')
-				t_len += ft_print_percent('%');
-		}
-		else 
-		{
+		if (*format == '%' && ft_strchr("cspdiuxX%", (*(format + 1))))
+			t_len += ft_printf_conv(*format, args);
+		else
 			ft_putchar_fd(*format, 1);
-			format++;
-		}
-	//t_len++;
+		format++;
 	}
 	va_end(args);
-	//printf("%d\n", t_len);
 	return (t_len);
 }
 /*

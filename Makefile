@@ -15,7 +15,9 @@ SRC 		:= $(SRC_DIR)/ft_printf.c 			\
 			   $(SRC_DIR)/ft_print_uint.c		\
 			   $(SRC_DIR)/ft_print_num_rev.c	\
 			   $(SRC_DIR)/ft_print_hex.c		\
-			   $(SRC_DIR)/ft_print_percent.c
+			   $(SRC_DIR)/ft_print_percent.c	\
+			   $(SRC_DIR)/ft_printf_conv.c		\
+			   $(SRC_DIR)/ft_print_char.c
 INCLUDES	:= -I$(INCLUDE_DIR) -I$(LIB)
 OBJ 		:= $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 RM := rm -f
