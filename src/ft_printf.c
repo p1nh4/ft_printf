@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/25 22:27:56 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/26 22:54:10 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,39 @@ size_t	ft_printf(const char *format, ...)
 	va_end(args);
 	return (t_len);
 }
+
+/*
+int	main(void)
+{
+	int ret =	printf(" NULL %s NULL \n", NULL);
+	printf("%d\n", ret);
+	int rot = ft_printf(" NULL %s NULL \n", NULL);
+	printf("%d\n", rot);
+}
+*/
+/*
+int	main(void)
+{
+	int ret = ft_printf(" %u ", 101);
+	printf("\nReturn: %d\n", ret);
+
+	int ret2 = printf(" %u ", 101);
+	printf("\nReturn: %d\n", ret2);
+	
+	int r1 = ft_printf(" %u ", 101);
+	printf("\nReturn: %d\n", r1);
+
+	int r2 = ft_printf(" %u ", 1001);
+	printf("\nReturn: %d\n", r2);
+
+	int r3 = ft_printf(" %u ", 100);
+	printf("\nReturn: %d\n", r3);
+
+	int r4 = ft_printf(" %u ", 1000);
+	printf("\nReturn: %d\n", r4);
+
+}
+*/
 /*
 int	main(void)
 {

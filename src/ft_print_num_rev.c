@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:30:40 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/25 22:05:59 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/26 22:38:16 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_print_num_rev(long int num)
 	reverse = 0;
 	while (num > 0)
 	{
-		if (num % 10 == 0)
+		if (num % 10 == 0 && reverse == 0)
 			zeros++;
 		else
 			reverse = reverse * 10 + num % 10;

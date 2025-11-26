@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 22:40:46 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/25 22:26:05 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/26 22:03:08 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ size_t	ft_print_hex(unsigned long int n, int flag)
 			ft_putchar_fd(ft_toupper(buffer[i]), 1);
 		}
 	}
-	return (len + 2);
+	return (len);
 }

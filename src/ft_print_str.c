@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 16:44:29 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/25 21:51:34 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/26 22:54:01 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_print_str(char *s)
 	if (!s)
 	{
 		ft_putstr_fd("(null)", 1);
-		return (5);
+		return (6);
 	}	
 
 	ft_putstr_fd(s, 1);
