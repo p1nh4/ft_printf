@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_conv.c                                   :+:      :+:    :+:   */
+/*   ft_process_specifier.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 15:28:30 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/25 22:40:18 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/27 22:49:04 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-size_t	ft_printf_conv(char format, va_list args)
+size_t	ft_process_specifier(char format, va_list args)
 {
 	int		lower_case;
 	int		upper_case;

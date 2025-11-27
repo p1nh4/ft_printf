@@ -6,11 +6,11 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/26 22:54:10 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/27 22:50:11 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 #include <stdio.h>
 
 size_t	ft_printf(const char *format, ...)
@@ -25,7 +25,7 @@ size_t	ft_printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == '%' && ft_strchr("cspdiuxX%", (*(++format))))
-			t_len += ft_printf_conv(*format, args);
+			t_len += ft_process_specifier(*format, args);
 		else
 		{
 			ft_putchar_fd(*format, 1);
