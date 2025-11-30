@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/30 19:49:58 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/11/30 22:48:49 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 #include <stdio.h>
 
-size_t	ft_printf(const char *format, ...)
+size_t	ft_printf_bonus(const char *format, ...)
 {
-	size_t	t_len;
-	va_list	args;
+	size_t		t_len;
+	va_list		args;
+	t_flags		flags = {0};
 
 	t_len = 0;
+	//ft_bzero(&flags, sizeof(flags));
 	va_start(args, format);
 	if (format == ((void *)0) || *format == '\0' || ((*format == '%') && (*(format + 1) == '\0'))) //(format + 1) nao move o ptr, format++ sim 
 		return (0);
 	while (*format)
 	{
-		if (*format == '%' && ft_strchr("cspdiuxX%", (*(++format))))
-			t_len += ft_process_specifier(*format, args);
+		if (*format == '%') 
+		{
+			ft_parse_flags_bonus(&format, &flags);
+			if (ft_strchr("cspdiuxX", (*format)))
+				t_len += ft_process_specifier_bonus(*format, args, &flags);
+		}
 		else
 		{
 			ft_putchar_fd(*format, 1);

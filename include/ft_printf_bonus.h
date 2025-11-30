@@ -1,0 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
+/*   Updated: 2025/11/30 22:43:33 by davidos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FT_PRINTF_BONUS_H
+# define FT_PRINTF_BONUS_H
+
+# include <stdarg.h>
+# include <unistd.h>
+# include "../lib/libft.h"
+
+//# define bool int
+//# define true 1
+//# define false 0
+
+typedef struct  s_flags
+{
+        int             width;
+        int             precision;
+        char    plus;
+        char    minus;
+        char    zeros;
+        char    space;
+        char    hashtag;
+
+}                               t_flags;
+
+
+size_t  ft_print_char_bonus(int c);
+size_t  ft_print_str_bonus(char *s);
+size_t  ft_print_ptr_bonus(void *ptr);
+size_t  ft_print_int_bonus(int n);
+size_t  ft_print_num_rev_bonus(long int n);
+size_t  ft_print_uint_bonus(unsigned int ptr);
+size_t  ft_print_hex_bonus(unsigned long int n, int flag);
+size_t  ft_print_percent_bonus(char c);
+size_t  ft_process_specifier_bonus(char format, va_list args, t_flags *flags);
+void	ft_parse_flags_bonus(const char **format, t_flags *flags);
+size_t  ft_printf_bonus(const char *format, ...);
+
+#endif
