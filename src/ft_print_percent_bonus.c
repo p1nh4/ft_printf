@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_flags_bonus.c                             :+:      :+:    :+:   */
+/*   ft_print_percent_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/27 22:39:50 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/01 15:14:57 by davidos-         ###   ########.fr       */
+/*   Created: 2025/11/22 16:47:03 by davidos-          #+#    #+#             */
+/*   Updated: 2025/12/01 14:43:48 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_bonus.h"
+#include "ft_printf.h"
 
-void	ft_parse_flags_bonus(const char **format, t_flags *flags)
+size_t	ft_print_percent_bonus(char c)
 {
- 	while (!ft_strchr("cspdiuxX", **format))
-	{
-		if (**format == '-')
-			flags->minus = 1;
-		else if (**format == '0')
-			flags->zeros = 1;
-		else if (**format == '#')
-			flags->hashtag = 1;
-		else if (**format == '+')
-			flags->plus = 1;
-		else if (**format == ' ')
-			flags->space = 1;	
-		(*format)++;
-	}
+	int	len;
+
+	len = 0;
+	ft_putchar_fd(c, 1);
+	len += 1;
+	return (len);
 }

@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_flags_bonus.c                             :+:      :+:    :+:   */
+/*   ft_print_ptr_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/27 22:39:50 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/01 15:14:57 by davidos-         ###   ########.fr       */
+/*   Created: 2025/11/17 21:35:17 by davidos-          #+#    #+#             */
+/*   Updated: 2025/12/01 14:44:16 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_bonus.h"
+#include "ft_printf.h"
 
-void	ft_parse_flags_bonus(const char **format, t_flags *flags)
+size_t	ft_print_ptr_bonus(void *p)
 {
- 	while (!ft_strchr("cspdiuxX", **format))
+	unsigned  long int	temp;
+	size_t				len;
+	void				*ptr_hex;
+	int					lower_case;
+
+	ptr_hex = (void *)p;
+	if (!ptr_hex)
 	{
-		if (**format == '-')
-			flags->minus = 1;
-		else if (**format == '0')
-			flags->zeros = 1;
-		else if (**format == '#')
-			flags->hashtag = 1;
-		else if (**format == '+')
-			flags->plus = 1;
-		else if (**format == ' ')
-			flags->space = 1;	
-		(*format)++;
+		ft_putstr_fd("(nil)", 1);
+		return (5);
 	}
+	len = 0;
+	lower_case = 1;
+	temp = (unsigned long int)p;
+	ft_putchar_fd('0', 1);
+	ft_putchar_fd('x', 1);
+	len += ft_print_hex(temp, lower_case);
+	return (len + 2);
 }

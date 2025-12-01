@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/30 22:48:49 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/01 19:26:56 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,82 +43,24 @@ size_t	ft_printf_bonus(const char *format, ...)
 	return (t_len);
 }
 
-/*
-int	main(void)
+int main(void)
 {
-	int ret =	printf(" NULL %s NULL \n", NULL);
-	printf("%d\n", ret);
-	int rot = ft_printf(" NULL %s NULL \n", NULL);
-	printf("%d\n", rot);
+	// flags (+, space)
+	ft_printf_bonus("Teste: %+d\n", 42); //+42 
+	ft_printf_bonus("Teste: % d\n", 42); // 42 
+	ft_printf_bonus("Teste: %d\n", -5);  //-5
+
+	// flags (#)
+	ft_printf_bonus("%x\n", 255);      //ff
+	ft_printf_bonus("%#x\n", 255);     //0xff
+	ft_printf_bonus("%X\n", 255);      //FF
+	ft_printf_bonus("%#X\n", 255);     //0XFF
+	ft_printf_bonus("%#x\n", 0);       //0x0
+									   
+	// flags largura (%(x)d)
+	ft_printf_bonus("%5d", 42);     // imprime "   42" (3 espaços + 42)
+	ft_printf_bonus("%5d", -5);     // imprime "   -5" (3 espaços + -5)
+	ft_printf_bonus("%-5d", 42);    // imprime "42   " (42 + 3 espaços) - alinhado à esquerda
+	ft_printf_bonus("%05d", 42);    // imprime "00042" (zeros à esquerda)
+								
 }
-*/
-/*
-int	main(void)
-{
-	int ret = ft_printf(" %u ", 101);
-	printf("\nReturn: %d\n", ret);
-
-	int ret2 = printf(" %u ", 101);
-	printf("\nReturn: %d\n", ret2);
-	
-	int r1 = ft_printf(" %u ", 101);
-	printf("\nReturn: %d\n", r1);
-
-	int r2 = ft_printf(" %u ", 1001);
-	printf("\nReturn: %d\n", r2);
-
-	int r3 = ft_printf(" %u ", 100);
-	printf("\nReturn: %d\n", r3);
-
-	int r4 = ft_printf(" %u ", 1000);
-	printf("\nReturn: %d\n", r4);
-
-}
-*/
-/*
-int	main(void)
-{
-	//print numbers and strings
-	int	t_len;
-
-	t_len = ft_printf("Ola %d Porto este e um pequeno teste do %s\n", 42, "David");
-	ft_printf("%d\n", ft_strlen("Ola 42 Porto este e um pequeno teste do David\n"));
-	ft_printf("%d\n", t_len);
-
-	//print ptr (void *)
-	int	var;
-	int	*ptr_var;
-	int	p_len;
-
-	var = 10;
-	ptr_var = &var;
-
-	p_len = ft_printf("Este e o endereço de memoria: %p de %d\n", ptr_var, var);
-	ft_printf("%d\n", p_len);
-
-	//print unsigned int
-	int	u_len;
-
-	u_len = ft_printf("Este e um numero positivo 28: %u\n", 280);
-	ft_printf("Tamanho numero positivo: %d\n", u_len);
-
-	u_len = ft_printf("Este e um numero negativo -28 (4294967268): %u\n", -28);
-	ft_printf("Tamanho numero negativo: %d\n", u_len);
-
-	//print hexadecimal minusculas
-	int	hex_len;
-	hex_len = 0;
-	hex_len = ft_printf("Este é 255 em  hexadecimal (minusculas): %x\n", 255);
-	ft_printf("Tamanho numero hex minusculas: %d\n", hex_len);
-
-	//print hexadecimal maiusculas
-	hex_len = 0;
-	hex_len = ft_printf("Este é 255 em hexadecimal (maisculas): %X\n", 255);
-	ft_printf("Tamanho numero hex maiusculas: %d\n", hex_len);
-
-	//print sinal %
-	int	percent_len;
-	percent_len = 0;
-	percent_len = ft_printf("Este e o sinal %% e aqui igual %%\n");
-	ft_printf("Tamanho: %d\n",percent_len);
-}*/
