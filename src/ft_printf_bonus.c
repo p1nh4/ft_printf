@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/01 19:26:56 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/01 21:45:35 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,19 @@ int main(void)
 	ft_printf_bonus("%#x\n", 0);       //0x0
 									   
 	// flags largura (%(x)d)
-	ft_printf_bonus("%5d", 42);     // imprime "   42" (3 espaços + 42)
+/*	ft_printf_bonus("%5d", 42);     // imprime "   42" (3 espaços + 42)
 	ft_printf_bonus("%5d", -5);     // imprime "   -5" (3 espaços + -5)
 	ft_printf_bonus("%-5d", 42);    // imprime "42   " (42 + 3 espaços) - alinhado à esquerda
 	ft_printf_bonus("%05d", 42);    // imprime "00042" (zeros à esquerda)
-								
+*/
+
+	t_flags flags = {0};
+    const char *test = "10d";
+    const char *ptr = test;
+
+    ft_parse_flags_bonus(&ptr, &flags);
+    printf("Width: %d\n", flags.width);      // deve dar 10
+    printf("Remaining: %s\n", ptr);          // deve dar "d"
+
+    return 0;
 }
