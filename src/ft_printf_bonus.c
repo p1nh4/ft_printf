@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/03 19:56:37 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/03 20:18:06 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int main(void)
 	ft_printf_bonus("[%+ d]\n", -42);  // [-42]
 
 	ft_printf_bonus("[% 5d]\n", 42);  // [   42]
-	ft_printf_bonus("[% 5d]\n", -42); // [  -42] e este esta [-42 ]
+	ft_printf_bonus("[% 5d]\n", -42); // [  -42] e este esta [ -42]
 	ft_printf_bonus("[% -5d]\n", 42);  // [ 42  ]
 	ft_printf_bonus("[% -5d]\n", -42); // [-42  ] este esta [-42 ]
 	ft_printf_bonus("[%+5d]\n", 42);    // [  +42]
