@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/03 20:18:06 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/03 21:58:50 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int main(void)
 	ft_printf_bonus("%05d", 42);    // imprime "00042" (zeros à esquerda)
 */
 
-
+	//largura (width), e com outras flags
 	ft_printf_bonus("[%5d]\n", 42);
 	ft_printf_bonus("[%5d]\n", -42);
 	ft_printf_bonus("[%-5d]\n", 42);
@@ -83,13 +83,26 @@ int main(void)
 	ft_printf_bonus("[%+5d]\n", 42);    // [  +42]
 	ft_printf_bonus("[%+5d]\n", -42);   // [  -42]
 
+	ft_printf_bonus("[%5d]\n", 42);
+	ft_printf_bonus("[%-5d]\n", 42);
+	ft_printf_bonus("[%5d]\n", -42);
+	ft_printf_bonus("[%+5d]\n", 42);
+	ft_printf_bonus("[% 5d]\n", 42);
+	
 	/*	t_flags flags = {0};
     const char *test = "10d";
     const char *ptr = test;
 
     ft_parse_flags_bonus(&ptr, &flags);
     printf("Width: %d\n", flags.width);      // deve dar 10
-    printf("Remaining: %s\n", ptr);          // deve dar "d"
-*/
-    return 0;
+    printf("Remaining: %s\n", ptr);          // deve dar "d" 
+											 // */
+	// char com largura
+	ft_printf_bonus("[%5c]\n", 'A');
+	ft_printf_bonus("[%-5c]\n", 'A');
+	ft_printf_bonus("[%5c]\n", 'A');
+	ft_printf_bonus("[%+5c]\n", 'A');
+	ft_printf_bonus("[% 5c]\n", 'A');
+    
+	return 0;
 }

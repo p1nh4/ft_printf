@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/01 18:59:31 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/03 21:29:49 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct  s_flags
 }                               t_flags;
 
 
-size_t  ft_print_char(int c);
+size_t  ft_print_char_bonus(int c, t_flags *flags);
 size_t  ft_print_str_bonus(char *s, t_flags *flags);
 size_t  ft_print_ptr_bonus(void *ptr, t_flags *flags);
 size_t  ft_print_int_bonus(int n, t_flags *flags);

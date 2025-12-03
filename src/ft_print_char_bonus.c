@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_ptr_bonus.c                               :+:      :+:    :+:   */
+/*   ft_print_char_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/17 21:35:17 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/03 22:45:10 by davidos-         ###   ########.fr       */
+/*   Created: 2025/11/25 16:34:16 by davidos-          #+#    #+#             */
+/*   Updated: 2025/12/03 22:55:41 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-/*
-size_t	ft_print_ptr_bonus(void *p)
-{
-	unsigned  long int	temp;
-	size_t				len;
-	void				*ptr_hex;
-	int					lower_case;
 
-	ptr_hex = (void *)p;
-	if (!ptr_hex)
-	{
-		ft_putstr_fd("(nil)", 1);
-		return (5);
-	}
+size_t	ft_print_char_bonus(int c, t_flags *flags)
+{
+	int	spaces;
+	int	len;
+
 	len = 0;
-	lower_case = 1;
-	temp = (unsigned long int)p;
-	ft_putchar_fd('0', 1);
-	ft_putchar_fd('x', 1);
-	len += ft_print_hex(temp, lower_case);
-	return (len + 2);
-}*/ 
+	if (flags->width > 1)
+		spaces = flags->width - 1;
+	else
+		spaces = 0;
+	len += spaces;
+	if (!flags->minus)
+	{
+		while (spaces--)
+			ft_putchar_fd(' ', 1);
+	}
+	ft_putchar_fd(c, 1);
+	if (flags->minus)
+	{
+		while (spaces--)
+			ft_putchar_fd(' ', 1);
+	}
+	return (1 + len);
+}
