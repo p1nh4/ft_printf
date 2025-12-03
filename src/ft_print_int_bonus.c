@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 17:28:56 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/01 19:19:57 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/03 19:56:43 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,17 @@
 size_t	ft_print_int_bonus(int n, t_flags *flags)
 {
 	size_t	len;
-	int		n_zeros;
+//	int		n_zeros;
+	int		spaces;
 	char	*str_n;
 
-	len = 0;
-	if (flags->plus == 1 && n >= 0)
+	str_n = ft_itoa(n);
+	len = ft_strlen(str_n);
+	if (flags->plus && n >= 0)
+		len += 1;
+	else if (!flags->plus && flags->space)
+		len += 1;
+	/*if (flags->plus == 1 && n >= 0)
 	{
 		len += 1;
 		ft_putchar_fd('+', 1);
@@ -29,15 +35,36 @@ size_t	ft_print_int_bonus(int n, t_flags *flags)
 		len += 1;
 		ft_putchar_fd(' ', 1);
 	}
-	str_n = ft_itoa(n);
-	n_zeros = 0;
-	/*if ((int)ft_strlen(str_n) < flags->precision)
-		n_zeros = flags->precision - ft_strlen(str_n);
-	len += n_zeros;*/
-	while (n_zeros--)
+	str_n = ft_itoa(n);*/
+	spaces = 0;
+	if (flags->width > (int)len)
+	{
+		spaces = flags->width - len;
+		len += spaces;
+	}
+	else 
+		spaces = 0;
+	if (!flags->minus)
+	{
+		while (spaces--)
+			ft_putchar_fd(' ', 1);
+	}
+	if (flags->plus && n >= 0)
+		ft_putchar_fd('+', 1);
+	else if (flags->space && n >= 0)
+		ft_putchar_fd(' ', 1);
+	ft_putstr_fd(str_n, 1);
+ 	if (flags->minus)
+	{
+		while(spaces--)
+			ft_putchar_fd(' ', 1);
+	}
+	/*n_zeros = 0;
+		while (n_zeros--)
 		ft_putchar_fd('0', 1);
 	ft_putstr_fd(str_n, 1);
-	len += ft_strlen(str_n);
+	len += ft_strlen(str_n);*/
+
 	free(str_n);
 	return (len);
 }

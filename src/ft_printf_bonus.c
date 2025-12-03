@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/01 21:45:35 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/03 19:56:37 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,32 @@ int main(void)
 	ft_printf_bonus("%05d", 42);    // imprime "00042" (zeros à esquerda)
 */
 
-	t_flags flags = {0};
+
+	ft_printf_bonus("[%5d]\n", 42);
+	ft_printf_bonus("[%5d]\n", -42);
+	ft_printf_bonus("[%-5d]\n", 42);
+	ft_printf_bonus("[%-5d]\n", -42);
+
+	ft_printf_bonus("[% d]\n", -42);
+	ft_printf_bonus("[% d]\n", 42);
+
+	ft_printf_bonus("[%+ d]\n", 42);   // [+42]  e NÃO [ +42]
+	ft_printf_bonus("[%+ d]\n", -42);  // [-42]
+
+	ft_printf_bonus("[% 5d]\n", 42);  // [   42]
+	ft_printf_bonus("[% 5d]\n", -42); // [  -42] e este esta [-42 ]
+	ft_printf_bonus("[% -5d]\n", 42);  // [ 42  ]
+	ft_printf_bonus("[% -5d]\n", -42); // [-42  ] este esta [-42 ]
+	ft_printf_bonus("[%+5d]\n", 42);    // [  +42]
+	ft_printf_bonus("[%+5d]\n", -42);   // [  -42]
+
+	/*	t_flags flags = {0};
     const char *test = "10d";
     const char *ptr = test;
 
     ft_parse_flags_bonus(&ptr, &flags);
     printf("Width: %d\n", flags.width);      // deve dar 10
     printf("Remaining: %s\n", ptr);          // deve dar "d"
-
+*/
     return 0;
 }
