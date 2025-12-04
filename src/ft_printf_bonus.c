@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/03 21:58:50 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/04 22:19:02 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,13 @@ int main(void)
 	ft_printf_bonus("[%5c]\n", 'A');
 	ft_printf_bonus("[%+5c]\n", 'A');
 	ft_printf_bonus("[% 5c]\n", 'A');
-    
+   
+	//uint com largura antes ou depois
+    ft_printf_bonus("[%5u]\n", 'A');
+    ft_printf_bonus("[%-5u]\n", 'A');
+    ft_printf_bonus("[%5u]\n", 'A');
+    ft_printf_bonus("[%+5u]\n", 'A');
+    ft_printf_bonus("[%-3u]\n", 'A');
+
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 15:28:30 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/03 22:48:20 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/04 21:59:03 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ size_t	ft_process_specifier_bonus(char format, va_list args, t_flags *flags)
 		t_len += ft_print_int_bonus(va_arg(args, int), flags);
 	else if (format == 'i')
 		t_len  += ft_print_int_bonus(va_arg(args, int), flags);
-	//else if (format == 'u')
-		//t_len += ft_print_uint_bonus(va_arg(args, unsigned int), flags);
+	else if (format == 'u')
+		t_len += ft_print_uint_bonus(va_arg(args, unsigned int), flags);
 	else if (format == 'x')
 		t_len += ft_print_hex_bonus(va_arg(args, unsigned int), lower_case, flags);
 	else if (format == 'X')

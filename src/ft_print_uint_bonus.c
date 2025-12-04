@@ -6,29 +6,51 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:09:09 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/03 22:47:28 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/04 22:54:14 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 #include <stdio.h>
-/*
-size_t	ft_print_uint_bonus(const unsigned int ptr)
+
+size_t	ft_print_uint_bonus(unsigned int n, t_flags *flags)
 {
 	size_t			len;
-	unsigned int	num_uint;
+	int				spaces;
+	char			*n_uint;
 
-	num_uint = (unsigned int )ptr;
-
-	if (num_uint == 0)
+	//ajustar o len retornado	
+	n_uint = ft_itoa(n);
+	len = ft_strlen(n_uint);
+	if (n == 0)
 	{
 		ft_putchar_fd(0 + '0', 1);
 		return (1);
 	}
-	len = ft_print_num_rev(num_uint);
+	spaces = 0;
+	if (flags->width >= (int)len)
+	{
+		spaces = flags->width - len;
+		len += spaces;
+	}
+	else
+		spaces = 0;
+	if (!flags->minus)
+	{
+		while (spaces--)
+			ft_putchar_fd(' ', 1);
+	}
+	len = ft_print_num_rev(n);
+	if (flags->minus)
+	{
+		while (spaces--)
+			ft_putchar_fd(' ', 1);
+	}
+	free(n_uint);
 	return (len);
-}*/
+}
+
 /*
 void	print_num_rec(int n)
 {
