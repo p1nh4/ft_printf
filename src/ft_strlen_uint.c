@@ -1,47 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_num_rev.c                                 :+:      :+:    :+:   */
+/*   ft_strlen_uint.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/21 20:30:40 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/05 22:05:54 by davidos-         ###   ########.fr       */
+/*   Created: 2025/12/05 21:21:53 by davidos-          #+#    #+#             */
+/*   Updated: 2025/12/05 21:31:21 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-size_t	ft_print_num_rev(long int num)
+int	ft_len_uint(unsigned int n)
 {
-	int			len;
-	int			zeros;
-	long int	reverse;
+	int	len;
 
-	len = 0;
-	zeros = 0;
-	reverse = 0;
-	if (num == 0)
-	{
-		ft_putchar_fd('0', 1);
+	if(n == 0)
 		return (1);
-	}
-	while (num > 0)
+	len = 0;
+	while (n)
 	{
-		if (num % 10 == 0 && reverse == 0)
-			zeros++;
-		else
-			reverse = reverse * 10 + num % 10;
-		num /= 10;
+		n /= 10;
 		len++;
 	}
-
-	while (reverse)
-	{
-		ft_putchar_fd(reverse % 10 + '0', 1);
-		reverse /= 10;
-	}
-	while (zeros--)
-		ft_putchar_fd('0', 1);
 	return (len);
-} 
+}

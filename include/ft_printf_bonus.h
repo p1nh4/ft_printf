@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/04 22:08:18 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/05 21:31:30 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ size_t  ft_print_str_bonus(char *s, t_flags *flags);
 size_t  ft_print_ptr_bonus(void *ptr, t_flags *flags);
 size_t  ft_print_int_bonus(int n, t_flags *flags);
 size_t  ft_print_num_rev(long int n);
+int		ft_len_uint(unsigned int n);
 size_t  ft_print_uint_bonus(unsigned int n, t_flags *flags);
 size_t  ft_print_hex_bonus(unsigned long int n, int flag, t_flags *flags);
 size_t  ft_print_percent_bonus(char c, t_flags *flags);
