@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/05 21:53:29 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/07 22:53:41 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,27 @@ int main(void)
     ft_printf_bonus("[%5u]\n", 6);
     ft_printf_bonus("[%+5u]\n", -6);
     ft_printf_bonus("[%-3u]\n", 12);
+
+	//string com largura antes e depois
+	ft_printf_bonus("[%10s]\n", "oi");
+    ft_printf_bonus("[%-10s]\n", "oie2");	
+    ft_printf_bonus("[%10s]\n", 0);
+    ft_printf_bonus("[%-10s]\n", 0);
+	
+	//hex 0x e 0X com largura
+    ft_printf_bonus("%10x\n", 255);
+    ft_printf_bonus("%-10X\n", 255);
+    ft_printf_bonus("%#10x\n", 255);
+	ft_printf_bonus("%#10X\n", 255);
+    ft_printf_bonus("%-#10x\n", 255);
+    ft_printf_bonus("%#10x\n", 0);
+    ft_printf_bonus("%-#10X\n", 0);
+    ft_printf_bonus("%10x\n", 0);
+
+	//ptr com largura antes ou depois
+	int x = 42;
+	ft_printf_bonus("[%20p]\n", &x);
+	ft_printf_bonus("[%-20p]\n", &x);
 
 	return 0;
 }

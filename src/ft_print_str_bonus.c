@@ -6,24 +6,39 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 16:44:29 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/01 14:44:34 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/06 17:28:36 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_print_str_bonus(char *s)
+size_t	ft_print_str_bonus(char *s, t_flags *flags)
 {
 	size_t	len;
+	int		spaces;
 
+	spaces = 0;
 	if (!s)
+		len = 6;
+	else
+		len = ft_strlen(s);
+	if (flags->width > (int)len)
+		spaces = flags->width - len;
+	len += spaces;
+	if (!flags->minus)
 	{
+		while (spaces--)
+			ft_putchar_fd(' ', 1);
+	}
+	if (!s)
 		ft_putstr_fd("(null)", 1);
-		return (6);
-	}	
-
-	ft_putstr_fd(s, 1);
-	len = ft_strlen(s);
+	else
+		ft_putstr_fd(s, 1);
+	if (flags->minus)
+	{
+		while (spaces--)
+			ft_putchar_fd(' ', 1);
+	}
 	return (len);
 }
 

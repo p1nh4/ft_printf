@@ -6,13 +6,13 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 22:40:46 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/30 19:50:08 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/07 21:35:56 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_print_hex(unsigned long int n, int flag)
+size_t	ft_print_hex(unsigned long int n, int is_lower)
 {
 	int		digit;
 	int		i;
@@ -35,7 +35,7 @@ size_t	ft_print_hex(unsigned long int n, int flag)
 		n /= 16;
 	}
 	len = i;
-	if (flag)
+	if (is_lower)
 	{
 		while (i--)
 		{
