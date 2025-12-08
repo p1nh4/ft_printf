@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 17:28:56 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/03 20:20:23 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/08 16:38:58 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 size_t	ft_print_int_bonus(int n, t_flags *flags)
 {
 	size_t	len;
-//	int		n_zeros;
+	int		n_zeros;
 	int		spaces;
 	char	*str_n;
 
+	n_zeros = 0;
 	str_n = ft_itoa(n);
 	len = ft_strlen(str_n);
 	if (flags->plus && n >= 0)
@@ -42,12 +43,26 @@ size_t	ft_print_int_bonus(int n, t_flags *flags)
 		spaces = flags->width - len;
 		len += spaces;
 	}
-	else 
+	else
 		spaces = 0;
+/*	if (flags->zeros)
+	{
+		n_zeros = flags->width - len;
+		spaces -= n_zeros;
+	}
+*/
 	if (!flags->minus)
 	{
-		while (spaces--)
-			ft_putchar_fd(' ', 1);
+		if (flags->zeros)
+		{
+			while (spaces--)
+				ft_putchar_fd('0', 1);
+		}
+		else
+		{
+			while (spaces--)
+				ft_putchar_fd(' ', 1);
+		}
 	}
 	if (flags->plus && n >= 0)
 		ft_putchar_fd('+', 1);

@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/07 22:53:41 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/08 17:36:51 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ size_t	ft_printf_bonus(const char *format, ...)
 	t_len = 0;
 	//ft_bzero(&flags, sizeof(flags));
 	va_start(args, format);
-	if (format == ((void *)0) || *format == '\0' || ((*format == '%') && (*(format + 1) == '\0'))) //(format + 1) nao move o ptr, format++ sim 
+	if (format == ((void *)0) || *format == '\0' || ((*format == '%') && (*(format + 1) == '\0'))) //(format + 1) nao move o ptr, format++ sim
 		return (0);
 	while (*format)
 	{
-		if (*format == '%') 
+		if (*format == '%')
 		{
 			ft_parse_flags_bonus(&format, &flags);
 			if (ft_strchr("cspdiuxX", (*format)))
@@ -46,8 +46,8 @@ size_t	ft_printf_bonus(const char *format, ...)
 int main(void)
 {
 	// flags (+, space)
-	ft_printf_bonus("Teste: %+d\n", 42); //+42 
-	ft_printf_bonus("Teste: % d\n", 42); // 42 
+	ft_printf_bonus("Teste: %+d\n", 42); //+42
+	ft_printf_bonus("Teste: % d\n", 42); // 42
 	ft_printf_bonus("Teste: %d\n", -5);  //-5
 
 	// flags (#)
@@ -56,7 +56,7 @@ int main(void)
 	ft_printf_bonus("%X\n", 255);      //FF
 	ft_printf_bonus("%#X\n", 255);     //0XFF
 	ft_printf_bonus("%#x\n", 0);       //0x0
-									   
+
 	// flags largura (%(x)d)
 /*	ft_printf_bonus("%5d", 42);     // imprime "   42" (3 espaços + 42)
 	ft_printf_bonus("%5d", -5);     // imprime "   -5" (3 espaços + -5)
@@ -88,14 +88,14 @@ int main(void)
 	ft_printf_bonus("[%5d]\n", -42);
 	ft_printf_bonus("[%+5d]\n", 42);
 	ft_printf_bonus("[% 5d]\n", 42);
-	
+
 	/*	t_flags flags = {0};
     const char *test = "10d";
     const char *ptr = test;
 
     ft_parse_flags_bonus(&ptr, &flags);
     printf("Width: %d\n", flags.width);      // deve dar 10
-    printf("Remaining: %s\n", ptr);          // deve dar "d" 
+    printf("Remaining: %s\n", ptr);          // deve dar "d"
 											 // */
 	// char com largura
 	ft_printf_bonus("[%5c]\n", 'A');
@@ -103,7 +103,7 @@ int main(void)
 	ft_printf_bonus("[%5c]\n", 'A');
 	ft_printf_bonus("[%+5c]\n", 'A');
 	ft_printf_bonus("[% 5c]\n", 'A');
-   
+
 	//uint com largura antes ou depois
     ft_printf_bonus("[%5u]\n", 0);
     ft_printf_bonus("[%-5u]\n", 0);
@@ -113,10 +113,10 @@ int main(void)
 
 	//string com largura antes e depois
 	ft_printf_bonus("[%10s]\n", "oi");
-    ft_printf_bonus("[%-10s]\n", "oie2");	
+    ft_printf_bonus("[%-10s]\n", "oie2");
     ft_printf_bonus("[%10s]\n", 0);
     ft_printf_bonus("[%-10s]\n", 0);
-	
+
 	//hex 0x e 0X com largura
     ft_printf_bonus("%10x\n", 255);
     ft_printf_bonus("%-10X\n", 255);
@@ -131,6 +131,24 @@ int main(void)
 	int x = 42;
 	ft_printf_bonus("[%20p]\n", &x);
 	ft_printf_bonus("[%-20p]\n", &x);
+
+	// diferentes formatos (d, i, u, x, X, p) com zeros na largura
+	ft_printf_bonus("\n----Diferentes formatos (d, i, u, x, X, p) com zeros na largura----\n");
+	ft_printf_bonus("[%05d]\n", 42);
+   	ft_printf_bonus("[%+05d]\n", 42);
+    ft_printf_bonus("[%05i]\n", 42);
+  	ft_printf_bonus("[%05u]\n", 812);
+    ft_printf_bonus("[%-05d]\n", 42);
+	ft_printf_bonus("[%#06x]\n", 255);
+	ft_printf_bonus("[%07x]\n", 255);
+	ft_printf_bonus("[%#06X]\n", 255);
+	ft_printf_bonus("[%#04x]\n", 0);
+	ft_printf_bonus("[%04X]\n", 0);
+	ft_printf_bonus("[%07X]\n", 255);
+	ft_printf_bonus("[%05p]\n", 'A');
+
+
+
 
 	return 0;
 }

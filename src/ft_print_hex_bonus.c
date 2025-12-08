@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 22:40:46 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/07 21:34:42 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/08 17:35:10 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,16 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 		}
 		if (!flags->minus)
 		{
-			while (spaces--)
-				ft_putchar_fd(' ', 1);
+			if (flags->zeros)
+			{
+				while (spaces--)
+					ft_putchar_fd('0', 1);
+			}
+			else
+			{
+				while (spaces--)
+					ft_putchar_fd(' ', 1);
+			}
 		}
 		/*if (flags->hashtag == 1 && flag)
 		{
@@ -49,7 +57,7 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 			ft_putchar_fd('X', 1);
 			len += 2;
 		}*/
-		ft_putchar_fd('0', 1);	
+		ft_putchar_fd('0', 1);
 		if (flags->minus)
 		{
 			ft_putchar_fd(' ', 1);
@@ -65,7 +73,7 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 	}
 	len = i;
 	if (flags->hashtag)
-			len += 2;	
+			len += 2;
 	if (flags->width > (int)len)
 	{
 	spaces = flags->width - len;
@@ -73,7 +81,7 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 	}
 	if (is_lower)
 	{
-		if (!flags->minus)
+		if (!flags->minus && !flags->zeros)
 		{
 			while (spaces--)
 				ft_putchar_fd(' ', 1);
@@ -82,6 +90,12 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 		{
 			ft_putchar_fd('0', 1);
 			ft_putchar_fd('x', 1);
+
+		}
+		if (!flags->minus && flags->zeros)
+		{
+			while (spaces--)
+				ft_putchar_fd('0', 1);
 		}
 		while (i--)
 		{
@@ -95,7 +109,7 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 	}
 	else
 	{
-		if (!flags->minus)
+		if (!flags->minus && !flags->zeros)
 		{
 			while (spaces--)
 				ft_putchar_fd(' ', 1);
@@ -104,6 +118,11 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 		{
 			ft_putchar_fd('0', 1);
 			ft_putchar_fd('X', 1);
+		}
+		if (!flags->minus && flags->zeros)
+		{
+			while (spaces--)
+				ft_putchar_fd('0', 1);
 		}
 		while (i--)
 		{

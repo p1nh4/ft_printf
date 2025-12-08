@@ -1,2 +1,3 @@
 ordem :
 	%[flags][width][.precision]conversion
+	https://docwiki.embarcadero.com/RADStudio/Sydney/en/Printf_Format_Specifiers
