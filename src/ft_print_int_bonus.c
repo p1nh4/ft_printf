@@ -6,22 +6,28 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 17:28:56 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/08 16:38:58 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/13 17:38:29 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+#include <stdio.h>
 size_t	ft_print_int_bonus(int n, t_flags *flags)
 {
+	printf("[DEBUG: n=%d, precision=%d, width=%d]\n", n, flags->precision, flags->width);
 	size_t	len;
 	int		n_zeros;
 	int		spaces;
+	int		n_digits;
 	char	*str_n;
 
 	n_zeros = 0;
+	n_digits = 0;
 	str_n = ft_itoa(n);
 	len = ft_strlen(str_n);
+	n_digits = ft_strlen(str_n);
+	if (n < 0)
+		n_digits--;
 	if (flags->plus && n >= 0)
 		len += 1;
 	else if (!flags->plus && flags->space && n >= 0)
@@ -61,13 +67,20 @@ size_t	ft_print_int_bonus(int n, t_flags *flags)
 		else
 		{
 			while (spaces--)
-				ft_putchar_fd(' ', 1);
-		}
+		 		ft_putchar_fd(' ', 1);
+		}	
 	}
 	if (flags->plus && n >= 0)
 		ft_putchar_fd('+', 1);
 	else if (flags->space && n >= 0)
 		ft_putchar_fd(' ', 1);
+	if (flags->precision)
+	{
+		if (flags->precision > n_digits)
+			n_zeros = flags->precision - n_digits;
+		while (n_zeros--)
+			ft_putchar_fd('0', 1);
+	}
 	ft_putstr_fd(str_n, 1);
  	if (flags->minus)
 	{

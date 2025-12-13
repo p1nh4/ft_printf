@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 22:39:50 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/08 20:14:42 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/13 17:47:02 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,13 @@ void	ft_parse_flags_bonus(const char **format, t_flags *flags)
 		else if (**format == ' ')
 			flags->space = 1;
 		else if (**format == '.')
-			flags->precision = *(format + 1);
+		{
+			(*format)++;
+			flags->precision = ft_atoi(*format);
+			while (ft_isdigit(**format))
+				(*format)++;
+			continue;
+		}	
 		(*format)++;
 	}
 	if (ft_isdigit(**format))
