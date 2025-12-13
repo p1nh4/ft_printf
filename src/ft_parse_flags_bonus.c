@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 22:39:50 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/13 17:47:02 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/13 19:39:00 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_parse_flags_bonus(const char **format, t_flags *flags)
 {
-	while ((!ft_strchr("cspdiuxX", **format)) && (!ft_isdigit(**format) || **format == '0'))
+	while (!ft_strchr("cspdiuxX", **format))
 	{
 		if (**format == '-')
 			flags->minus = 1;
-		else if (**format == '0')
+		else if (**format == '0' && !ft_isdigit(*(*format + 1)))
 			flags->zeros = 1;
 		else if (**format == '#')
 			flags->hashtag = 1;
@@ -33,13 +33,14 @@ void	ft_parse_flags_bonus(const char **format, t_flags *flags)
 			while (ft_isdigit(**format))
 				(*format)++;
 			continue;
-		}	
-		(*format)++;
-	}
-	if (ft_isdigit(**format))
-	{
-		flags->width = ft_atoi(*format);
-		while (ft_isdigit(**format))
+		}
+		if (ft_isdigit(**format))
+		{
+			flags->width = ft_atoi(*format);
+			while (ft_isdigit(**format))
 			(*format)++;
+			continue;
+		}
+		(*format)++;
 	}
 }
