@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 22:40:46 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/08 17:35:10 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/14 14:48:49 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 	int		digit;
 	int		i;
 	int		spaces;
+	int		n_zeros;
 	size_t	len;
 	char	*table;
 	char	buffer[sizeof(void *) * 2 + 1]; //array de char ajusta a sistemas 32-64bits + \0
@@ -24,6 +25,7 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 	i = 0;
 	len = 0;
 	spaces = 0;
+	n_zeros = 0;
 	table = "0123456789abcdef";
 	if (n == 0)
 	{
@@ -74,15 +76,22 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 	len = i;
 	if (flags->hashtag)
 			len += 2;
+	if (flags->precision >= 0 && flags->precision > len)
+	{
+		n_zeros = flags->precision - len;
+		len += n_zeros;
+	}
 	if (flags->width > (int)len)
 	{
-	spaces = flags->width - len;
+		spaces = flags->width - len;
 		len += spaces;
 	}
 	if (is_lower)
 	{
 		if (!flags->minus && !flags->zeros)
 		{
+			if (flags->plus && n >= 0)
+
 			while (spaces--)
 				ft_putchar_fd(' ', 1);
 		}
@@ -92,8 +101,9 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 			ft_putchar_fd('x', 1);
 
 		}
-		if (!flags->minus && flags->zeros)
+		if (!flags->minus && flags->zeros && flags->precision < 0)
 		{
+
 			while (spaces--)
 				ft_putchar_fd('0', 1);
 		}
