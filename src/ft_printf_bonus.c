@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/14 12:13:28 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/14 13:08:51 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,6 +203,14 @@ int main(void)
 	ft_printf_bonus("[%-13.4d]\n", 42);   // [0042         ]
 
 
+	//teste precision uint
+	printf("\n=== TESTE: %%u com precisão ===\n");
+	ft_printf_bonus("[%.5u]\n", 42);        // [00042]
+	ft_printf_bonus("[%10.5u]\n", 42);      // [     00042]
+	ft_printf_bonus("[%-10.5u]\n", 42);     // [00042     ]
+	ft_printf_bonus("[%.3u]\n", 1);         // [001]
+	ft_printf_bonus("[%.5u]\n", 0);         // [00000]
+	ft_printf_bonus("[%8.5u]\n", 34);       // [   00034]
 
 	return 0;
 }
