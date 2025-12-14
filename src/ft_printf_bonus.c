@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/13 19:52:55 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/14 12:13:28 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_printf_bonus(const char *format, ...)
 {
 	size_t		t_len;
 	va_list		args;
-	t_flags		flags = {0};
+	t_flags		flags = {0, -1, 0, 0, 0, 0, 0};
 
 	t_len = 0;
 	//ft_bzero(&flags, sizeof(flags));
@@ -154,6 +154,55 @@ int main(void)
     ft_printf_bonus("[%9.3d]\n", -7);   // imprime "-007"
     ft_printf_bonus("[%-13.4d]\n", 42);
     ft_printf_bonus("[%+10.4d]\n", 42);
+
+	// Teste 1: Flags básicos
+	printf("\n=== TESTE 1: Flags básicos ===\n");
+	ft_printf_bonus("%+d\n", 42);    // +42
+	ft_printf_bonus("% d\n", 42);    // 42 (com espaço)
+	ft_printf_bonus("%d\n", -42);    // -42
+
+	// Teste 2: Largura
+	printf("\n=== TESTE 2: Largura ===\n");
+	ft_printf_bonus("[%10d]\n", 42);   // [        42]
+	ft_printf_bonus("[%-10d]\n", 42);  // [42        ]
+	ft_printf_bonus("[%10d]\n", -42);  // [       -42]
+
+	// Teste 3: Flag 0
+	printf("\n=== TESTE 3: Flag 0 ===\n");
+	ft_printf_bonus("[%05d]\n", 42);    // [00042]
+	ft_printf_bonus("[%+05d]\n", 42);   // [+0042]
+	ft_printf_bonus("[%05d]\n", -42);   // [-0042]
+	ft_printf_bonus("[%-05d]\n", 42);   // [42   ] (- ignora 0)
+
+	// Teste 4: Precisão
+	printf("\n=== TESTE 4: Precisão ===\n");
+	ft_printf_bonus("[%.5d]\n", 42);      // [00042]
+	ft_printf_bonus("[%+.5d]\n", 42);     // [+00042]
+	ft_printf_bonus("[%.3d]\n", -7);      // [-007]
+	ft_printf_bonus("[%10.5d]\n", 42);    // [     00042]
+
+	// Teste 5: Flag 0 + Precisão (0 é ignorado)
+	printf("\n=== TESTE 5: Flag 0 + Precisão ===\n");
+	ft_printf_bonus("[%05.3d]\n", 42);    // [  042] (não 00042!)
+
+	// Teste 6: Hex com #
+	printf("\n=== TESTE 6: Hex ===\n");
+	ft_printf_bonus("[%#x]\n", 255);      // [0xff]
+	ft_printf_bonus("[%#10x]\n", 255);    // [     0xff]
+	ft_printf_bonus("[%#010x]\n", 255);   // [0x000000ff]
+
+	// Teste 7: Strings
+	printf("\n=== TESTE 7: Strings ===\n");
+	ft_printf_bonus("[%10s]\n", "oi");    // [        oi]
+	ft_printf_bonus("[%-10s]\n", "oi");   // [oi        ]
+	ft_printf_bonus("[%s]\n", NULL);      // [(null)]
+
+	// Teste 8: Mix complexo
+	printf("\n=== TESTE 8: Mix ===\n");
+	ft_printf_bonus("[%+10.4d]\n", 42);   // [     +0042]
+	ft_printf_bonus("[%-13.4d]\n", 42);   // [0042         ]
+
+
 
 	return 0;
 }
