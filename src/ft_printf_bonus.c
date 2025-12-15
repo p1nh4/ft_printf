@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/14 13:08:51 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/15 23:16:10 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,6 +211,24 @@ int main(void)
 	ft_printf_bonus("[%.3u]\n", 1);         // [001]
 	ft_printf_bonus("[%.5u]\n", 0);         // [00000]
 	ft_printf_bonus("[%8.5u]\n", 34);       // [   00034]
+
+	//Teste precision hexadecimal
+	printf("\n=== TESTE: %%x e %%X com precisão ===\n");
+	ft_printf_bonus("[%.5x]\n", 255);      // [000ff]
+	ft_printf_bonus("[%#.5x]\n", 255);     // [0x000ff]
+	ft_printf_bonus("[%10.5x]\n", 255);    // [     000ff]
+	ft_printf_bonus("[%.5X]\n", 255);      // [000FF]
+	ft_printf_bonus("[%#.5X]\n", 255);     // [0X000FF]
+	ft_printf_bonus("[%10.5X]\n", 255);    // [     000FF]
+
+
+	//teste precisao str
+	printf("\n=== TESTE: %%s com precisão ===\n");
+	ft_printf_bonus("[%.5s]\n", "hello world");    // [hello]
+	ft_printf_bonus("[%10.5s]\n", "hello");        // [     hello]
+	ft_printf_bonus("[%.3s]\n", "oi");             // [oi]
+	ft_printf_bonus("[%10.3s]\n", "hello");        // [       hel]
+	ft_printf_bonus("[%-10.5s]\n", "hello");       // [hello     ]
 
 	return 0;
 }

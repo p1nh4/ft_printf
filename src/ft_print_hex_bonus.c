@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 22:40:46 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/14 14:48:49 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/15 20:50:27 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 	table = "0123456789abcdef";
 	if (n == 0)
 	{
+		if (flags->precision > 0 && flags->precision > (int)len)
+			n_zeros = flags->precision - len; 
 		if (flags->width > 1)
 		{
 			spaces = flags->width - 1;
@@ -36,7 +38,7 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 		}
 		if (!flags->minus)
 		{
-			if (flags->zeros)
+			if (flags->zeros && flags->precision < 0)
 			{
 				while (spaces--)
 					ft_putchar_fd('0', 1);
@@ -76,9 +78,9 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 	len = i;
 	if (flags->hashtag)
 			len += 2;
-	if (flags->precision >= 0 && flags->precision > len)
+	if (flags->precision >= 0 && flags->precision > i)
 	{
-		n_zeros = flags->precision - len;
+		n_zeros = flags->precision - i;
 		len += n_zeros;
 	}
 	if (flags->width > (int)len)
@@ -90,8 +92,6 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 	{
 		if (!flags->minus && !flags->zeros)
 		{
-			if (flags->plus && n >= 0)
-
 			while (spaces--)
 				ft_putchar_fd(' ', 1);
 		}
@@ -101,10 +101,14 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 			ft_putchar_fd('x', 1);
 
 		}
-		if (!flags->minus && flags->zeros && flags->precision < 0)
+		if (!flags->minus && flags->zeros)
 		{
-
 			while (spaces--)
+				ft_putchar_fd('0', 1);
+		}
+		if (flags->precision >= 0)
+		{
+			while (n_zeros--)
 				ft_putchar_fd('0', 1);
 		}
 		while (i--)
@@ -134,10 +138,16 @@ size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 			while (spaces--)
 				ft_putchar_fd('0', 1);
 		}
+		if (flags->precision >= 0)
+		{
+			while (n_zeros--)
+				ft_putchar_fd('0', 1);
+		}
 		while (i--)
 		{
 			ft_putchar_fd(ft_toupper(buffer[i]), 1);
 		}
+
 		if (flags->minus)
 		{
 			while (spaces--)

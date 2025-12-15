@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 16:44:29 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/06 17:28:36 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/15 23:15:12 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ size_t	ft_print_str_bonus(char *s, t_flags *flags)
 	}
 	if (!s)
 		ft_putstr_fd("(null)", 1);
+	else if (flags->precision >= 0)
+	{
+		if (flags->precision < (int)len)
+			len = flags->precision;
+		while (flags->precision-- && *s)
+			ft_putchar_fd(*s++, 1);
+	}	
 	else
 		ft_putstr_fd(s, 1);
 	if (flags->minus)

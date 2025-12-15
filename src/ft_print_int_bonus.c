@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 17:28:56 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/14 14:48:54 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/15 20:52:38 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_print_int_bonus(int n, t_flags *flags)
 	int		spaces;
 	int		n_digits;
 	int		is_negative;
-	int		signal;
+	//int		signal;
 	char	*str_n;
 
 	n_zeros = 0;
@@ -35,7 +35,7 @@ size_t	ft_print_int_bonus(int n, t_flags *flags)
 	}
 	str_n = ft_itoa(n);
 	n_digits = ft_strlen(str_n);
-c	len = n_digits;
+	len = n_digits;
 	if (is_negative || flags->plus || flags->space)
 		len += 1;
 	/*else if (!flags->plus && flags->space && n >= 0)
@@ -53,7 +53,7 @@ c	len = n_digits;
 	}
 	else
 		spaces = 0;
-	signal = 0;
+	//signal = 0;
 	if (!flags->minus)
 	{
 		if (flags->zeros && flags->precision < 0)
