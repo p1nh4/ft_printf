@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/15 23:16:10 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/16 18:30:04 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,5 +230,7 @@ int main(void)
 	ft_printf_bonus("[%10.3s]\n", "hello");        // [       hel]
 	ft_printf_bonus("[%-10.5s]\n", "hello");       // [hello     ]
 
+
+	ft_printf_bonus("%-5c", 'A'); 
 	return 0;
 }
