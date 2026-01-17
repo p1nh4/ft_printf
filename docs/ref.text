@@ -6,6 +6,13 @@ printf
 	https://elixir.bootlin.com/linux/v6.17.7/source/arch/x86/boot/printf.c
 	https://www.google.com/search?q=how+to+make+print+functin+c&sxsrf=AE3TifMaxEwtW3N1_sRhghD0tcA6zdVvug%3A1762384248616
 
+	https://github.com/Lv2Kode2Pwr/printf/blob/main/print_pointer.c
+	https://github.com/Lv2Kode2Pwr/printf/blob/main/print_pointer.c
+	https://stackoverflow.com/questions/77351153/how-to-write-standard-output-in-hexadecimal-of-a-pointer-address-using-write
+	https://github.com/hackerSa3edy/printf/blob/master/print_ptr.c
+	https://www.google.com/search?q=create+function+print+hexadecimal+va_list+C&sxsrf=AE3TifPZQTRR7CEC7MjBLqqBaFO8Lp_TsQ:1763504958938&start=20
+	https://www.geeksforgeeks.org/c/c-pointers/
+
 other printf
 	https://www.geeksforgeeks.org/c/c-program-for-decimal-to-hexadecimal-conversion/
 	https://www.w3resource.com/c-programming-exercises/for-loop/c-for-loop-exercises-55.php
