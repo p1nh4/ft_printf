@@ -28,7 +28,9 @@ BONUS_SRC 	:= $(SRC_DIR)/ft_parse_flags_bonus.c					\
 			   $(SRC_DIR)/ft_print_ptr_bonus.c						\
 			   $(SRC_DIR)/ft_print_str_bonus.c						\
 			   $(SRC_DIR)/ft_print_uint_bonus.c						\
-			   $(SRC_DIR)/ft_printf_bonus.c							\
+	 		   $(SRC_DIR)/ft_strlen_uint.c 						    \
+               $(SRC_DIR)/ft_print_num_rev.c 						\
+			   $(SRC_DIR)/ft_printf_bonus.c							
 
 INCLUDES	:= -I$(INCLUDE_DIR) -I$(LIB)
 OBJ 		:= $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))

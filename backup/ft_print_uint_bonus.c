@@ -4,6 +4,19 @@
 /*   ft_print_uint_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
+/*                                               +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/21 20:09:09 by davidos-          #+#    #+#             */
+/*   Updated: 2025/12/17 22:26:04 by davidos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_uint_bonus.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
 /*   Updated: 2025/12/17 00:00:00 by davidos-         ###   ########.fr       */
@@ -69,3 +82,63 @@ size_t	ft_print_uint_bonus(unsigned int n, t_flags *flags)
 		ft_print_padding(spaces, ' ');
 	return (len);
 }
+
+/*
+#include "ft_printf_bonus.h"
+
+size_t	ft_print_uint_bonus(unsigned int n, t_flags *flags)
+{
+	size_t			len;
+	int				spaces;
+	int				n_zeros;
+
+	len = ft_len_uint(n);
+	spaces = 0;
+	n_zeros = 0;
+	if (flags->precision >= 0 && flags->precision > (int)len)
+		n_zeros = flags->precision - len;
+	len += n_zeros;
+	if (flags->width >= (int)len)
+		spaces = flags->width - len;
+	len += spaces;
+	if (!flags->minus)
+	{
+		if (flags->zeros && flags->precision < 0)
+		{
+			while (spaces--)
+				ft_putchar_fd('0', 1);
+		}
+		else
+		{
+			while (spaces--)
+				ft_putchar_fd(' ', 1);
+		}
+	}
+	if (flags->precision >= 0)
+	{
+		while (n_zeros--)
+			ft_putchar_fd('0', 1);
+	}
+	ft_print_num_rev(n);
+	if (flags->minus)
+	{
+		while (spaces--)
+			ft_putchar_fd(' ', 1);
+	}
+	return (len);
+}
+*/
+/*
+void	print_num_rec(int n)
+{
+	unsigned int	num;
+	int				reverse;
+
+	reverse = 0;
+	while (num--)
+	{
+		reverse = reverse * 10 + num % 10;
+		ft_putchar_fd(reverse + '0', 1);
+		n /= 10;
+	}
+}*/

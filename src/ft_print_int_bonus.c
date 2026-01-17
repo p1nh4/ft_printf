@@ -5,106 +5,86 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 17:28:56 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/15 20:52:38 by davidos-         ###   ########.fr       */
+/*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
+/*   Updated: 2025/12/17 00:00:00 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-#include <stdio.h>
+static int	ft_get_num_len(long n)
+{
+	int	len;
+
+	len = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		n = -n;
+	while (n > 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
+static void	ft_print_sign(int is_neg, t_flags *flags)
+{
+	if (is_neg)
+		ft_putchar_fd('-', 1);
+	else if (flags->plus)
+		ft_putchar_fd('+', 1);
+	else if (flags->space)
+		ft_putchar_fd(' ', 1);
+}
+
+static void	ft_print_padding(int count, char c)
+{
+	while (count-- > 0)
+		ft_putchar_fd(c, 1);
+}
+
+static void	ft_putnbr_long(long n)
+{
+	if (n < 0)
+		n = -n;
+	if (n >= 10)
+		ft_putnbr_long(n / 10);
+	ft_putchar_fd((n % 10) + '0', 1);
+}
 
 size_t	ft_print_int_bonus(int n, t_flags *flags)
 {
-	size_t	len;
+	long	num;
+	int		n_digits;
 	int		n_zeros;
 	int		spaces;
-	int		n_digits;
-	int		is_negative;
-	//int		signal;
-	char	*str_n;
+	int		len;
 
+	num = n;
+	n_digits = ft_get_num_len(num);
+	if (flags->precision == 0 && num == 0)
+		n_digits = 0;
 	n_zeros = 0;
-	n_digits = 0;
-	is_negative = 0;
-	len = 0;
-	if (n < 0)
-	{
-		is_negative = 1;
-		n = -n;
-	}
-	str_n = ft_itoa(n);
-	n_digits = ft_strlen(str_n);
-	len = n_digits;
-	if (is_negative || flags->plus || flags->space)
-		len += 1;
-	/*else if (!flags->plus && flags->space && n >= 0)
-		len += 1;*/
-	if (flags->precision >= 0 && flags->precision > n_digits)
-	{
+	if (flags->precision > n_digits)
 		n_zeros = flags->precision - n_digits;
-		len += n_zeros;
-	}
+	len = n_digits + n_zeros;
+	if (num < 0 || flags->plus || flags->space)
+		len++;
 	spaces = 0;
-	if (flags->width >= (int)len)
-	{
+	if (flags->width > len)
 		spaces = flags->width - len;
-		len += spaces;
-	}
-	else
-		spaces = 0;
-	//signal = 0;
-	if (!flags->minus)
-	{
-		if (flags->zeros && flags->precision < 0)
-		{
-			if (is_negative)
-				ft_putchar_fd('-', 1);
-			if (flags->plus && n >= 0)
-				ft_putchar_fd('+', 1);
-			else if (flags->space && n >= 0)
-				ft_putchar_fd(' ', 1);
-			while (spaces--)
-				ft_putchar_fd('0', 1);
-		}
-		else
-		{
-			while (spaces--)
-		 		ft_putchar_fd(' ', 1);
-			if (is_negative)
-				ft_putchar_fd('-', 1);
-			if (flags->plus && n >= 0)
-				ft_putchar_fd('+', 1);
-			else if (flags->space && n >= 0)
-				ft_putchar_fd(' ', 1);
-
-		}
-	}
-	else
-	{
-		if (is_negative)
-			ft_putchar_fd('-', 1);
-		if (flags->plus && n >= 0)
-			ft_putchar_fd('+', 1);
-		else if (flags->space && n >= 0)
-			ft_putchar_fd(' ', 1);
-	}
-	if (flags->precision >= 0)
-	{
-		while (n_zeros--)
-			ft_putchar_fd('0', 1);
-	}
-
-	ft_putstr_fd(str_n, 1);
- 	if (flags->minus)
-	{
-		while(spaces--)
-			ft_putchar_fd(' ', 1);
-	}
-	free(str_n);
+	len += spaces;
+	if (!flags->minus && (!flags->zeros || flags->precision >= 0))
+		ft_print_padding(spaces, ' ');
+	ft_print_sign(num < 0, flags);
+	if (!flags->minus && flags->zeros && flags->precision < 0)
+		ft_print_padding(spaces, '0');
+	ft_print_padding(n_zeros, '0');
+	if (!(flags->precision == 0 && num == 0))
+		ft_putnbr_long(num);
+	if (flags->minus)
+		ft_print_padding(spaces, ' ');
 	return (len);
 }
-/*converto o valor para int, logo iteramo pelos argumentos
- * convertemos esse in a str e logo print da str e enviamos
- * o tamanho da mesma.
- */

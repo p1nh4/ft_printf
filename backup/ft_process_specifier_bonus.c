@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/19 11:55:14 by davidos-         ###   ########.fr       */
+/*   Updated: 2025/12/19 14:36:15 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ size_t	ft_process_specifier_bonus(char format, va_list args, t_flags *flags)
 	else if (format == 'u')
 		t_len += ft_print_uint_bonus(va_arg(args, unsigned int), flags);
 	else if (format == 'x')
-		t_len += ft_print_hex_bonus(va_arg(args, unsigned int), 1, flags);
+		t_len += ft_print_hex_bonus(va_arg(args, unsigned int),
+				LOWER_CASE, flags);
 	else if (format == 'X')
-		t_len += ft_print_hex_bonus(va_arg(args, unsigned int), 0, flags);
+		t_len += ft_print_hex_bonus(va_arg(args, unsigned int),
+				UPPER_CASE, flags);
 	else if (format == '%')
 		t_len += ft_print_percent_bonus('%', flags);
 	return (t_len);

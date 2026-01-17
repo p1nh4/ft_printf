@@ -5,54 +5,62 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 16:44:29 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/15 23:15:12 by davidos-         ###   ########.fr       */
+/*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
+/*   Updated: 2025/12/17 00:00:00 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-size_t	ft_print_str_bonus(char *s, t_flags *flags)
+static void	ft_print_spaces(int count)
 {
-	size_t	len;
-	int		spaces;
+	while (count-- > 0)
+		ft_putchar_fd(' ', 1);
+}
 
-	spaces = 0;
-	if (!s)
-		len = 6;
-	else
-		len = ft_strlen(s);
-	if (flags->width > (int)len)
-		spaces = flags->width - len;
-	len += spaces;
-	if (!flags->minus)
+static void	ft_print_str_content(char *s, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
 	{
-		while (spaces--)
-			ft_putchar_fd(' ', 1);
+		ft_putchar_fd(s[i], 1);
+		i++;
 	}
+}
+
+static int	ft_get_str_len(char *s, t_flags *flags)
+{
+	int	str_len;
+	int	len;
+
 	if (!s)
-		ft_putstr_fd("(null)", 1);
-	else if (flags->precision >= 0)
-	{
-		if (flags->precision < (int)len)
-			len = flags->precision;
-		while (flags->precision-- && *s)
-			ft_putchar_fd(*s++, 1);
-	}	
+		str_len = 6;
 	else
-		ft_putstr_fd(s, 1);
-	if (flags->minus)
-	{
-		while (spaces--)
-			ft_putchar_fd(' ', 1);
-	}
+		str_len = ft_strlen(s);
+	len = str_len;
+	if (flags->precision >= 0 && flags->precision < str_len)
+		len = flags->precision;
 	return (len);
 }
 
-/*Usei va_arg para iterar pelos argumentos recebendo da funcao
- * printf o arg passado, logo uso putstr para imprimir a str
- * e conto o tamanho para devolver o mesmo para printf para
- * ter o calculo da string total correto
- */
+size_t	ft_print_str_bonus(char *s, t_flags *flags)
+{
+	int		len;
+	int		spaces;
 
-//como o lenth so retorna 2 e nao 5 para o nome????
+	len = ft_get_str_len(s, flags);
+	spaces = 0;
+	if (flags->width > len)
+		spaces = flags->width - len;
+	if (!flags->minus)
+		ft_print_spaces(spaces);
+	if (!s)
+		ft_print_str_content("(null)", len);
+	else
+		ft_print_str_content(s, len);
+	if (flags->minus)
+		ft_print_spaces(spaces);
+	return (len + spaces);
+}

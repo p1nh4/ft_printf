@@ -1,0 +1,6 @@
+Testeado
+	printfTester: https://github.com/Tripouille/printfTester OK
+
+	ft_printf_test: https://github.com/cacharle/ft_printf_test# 877/28 
+
+	printf-unit-test: https://github.com/alelievr/printf-unit-test# KO
