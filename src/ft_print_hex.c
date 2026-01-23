@@ -6,19 +6,34 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 22:40:46 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/07 21:35:56 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/23 19:34:58 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+static void	ft_print_hex_buffer(char buffer[], int i, int is_lower)
+{
+	if (is_lower)
+	{
+		while (i--)
+			ft_putchar_fd(buffer[i], 1);
+	}
+	else
+	{
+		while (i--)
+			ft_putchar_fd(ft_toupper(buffer[i]), 1);
+	}
+}
+
+//array de char ajusta a sistemas 32-64bits + \0
 size_t	ft_print_hex(unsigned long int n, int is_lower)
 {
 	int		digit;
 	int		i;
 	size_t	len;
 	char	*table;
-	char	buffer[sizeof(void *) * 2 + 1]; //array de char ajusta a sistemas 32-64bits + \0
+	char	buffer[sizeof(void *) * 2 + 1];
 
 	i = 0;
 	table = "0123456789abcdef";
@@ -35,19 +50,6 @@ size_t	ft_print_hex(unsigned long int n, int is_lower)
 		n /= 16;
 	}
 	len = i;
-	if (is_lower)
-	{
-		while (i--)
-		{
-			ft_putchar_fd(buffer[i], 1);
-		}
-	}
-	else
-	{
-		while (i--)
-		{
-			ft_putchar_fd(ft_toupper(buffer[i]), 1);
-		}
-	}
+	ft_print_hex_buffer(buffer, i, is_lower);
 	return (len);
 }

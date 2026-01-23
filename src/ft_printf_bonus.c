@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/17 22:41:27 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/23 21:22:19 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,11 @@ static void	ft_init_flags(t_flags *flags)
 
 int	ft_printf(const char *format, ...)
 {
-	int		t_len;
+	int		t_len = 0;
 	va_list	args;
 	t_flags	flags;
 
-	t_len = 0;
-	if (!format)
-		return (-1);
+	if (!format) return (-1);
 	va_start(args, format);
 	while (*format)
 	{
@@ -43,16 +41,12 @@ int	ft_printf(const char *format, ...)
 			ft_init_flags(&flags);
 			ft_parse_flags_bonus(&format, &flags);
 			if (*format && ft_strchr("cspdiuxX%", *format))
-			{
-				t_len += ft_process_specifier_bonus(*format, args, &flags);
-				format++;
-			}
+				t_len += ft_process_specifier_bonus(*format++, args, &flags);
 		}
 		else
 		{
-			ft_putchar_fd(*format, 1);
+			ft_putchar_fd(*format++, 1);
 			t_len++;
-			format++;
 		}
 	}
 	va_end(args);

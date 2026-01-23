@@ -13,7 +13,6 @@ SRC 		:= $(SRC_DIR)/ft_printf.c 					\
 			   $(SRC_DIR)/ft_print_ptr.c				\
 			   $(SRC_DIR)/ft_print_int.c				\
 			   $(SRC_DIR)/ft_print_uint.c				\
-			   $(SRC_DIR)/ft_print_num_rev.c			\
 			   $(SRC_DIR)/ft_print_hex.c				\
 			   $(SRC_DIR)/ft_print_percent.c			\
 			   $(SRC_DIR)/ft_process_specifier.c		\
@@ -25,11 +24,8 @@ BONUS_SRC 	:= $(SRC_DIR)/ft_parse_flags_bonus.c					\
 			   $(SRC_DIR)/ft_print_hex_bonus.c						\
 			   $(SRC_DIR)/ft_print_int_bonus.c						\
 			   $(SRC_DIR)/ft_print_percent_bonus.c					\
-			   $(SRC_DIR)/ft_print_ptr_bonus.c						\
 			   $(SRC_DIR)/ft_print_str_bonus.c						\
 			   $(SRC_DIR)/ft_print_uint_bonus.c						\
-	 		   $(SRC_DIR)/ft_strlen_uint.c 						    \
-               $(SRC_DIR)/ft_print_num_rev.c 						\
 			   $(SRC_DIR)/ft_printf_bonus.c							
 
 INCLUDES	:= -I$(INCLUDE_DIR) -I$(LIB)
@@ -69,7 +65,3 @@ fclean : clean
 re : fclean all
 
 .PHONY: all clean fclean re
-
-
-
-

@@ -6,12 +6,13 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/17 21:09:35 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/23 19:32:43 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+//(format + 1) nao move o ptr, format++ sim 
 size_t	ft_printf(const char *format, ...)
 {
 	size_t	t_len;
@@ -19,7 +20,8 @@ size_t	ft_printf(const char *format, ...)
 
 	t_len = 0;
 	va_start(args, format);
-	if (format == ((void *)0) || *format == '\0' || ((*format == '%') && (*(format + 1) == '\0'))) //(format + 1) nao move o ptr, format++ sim 
+	if (format == ((void *)0) || *format == '\0'
+		|| ((*format == '%') && (*(format + 1) == '\0')))
 		return (0);
 	while (*format)
 	{
@@ -74,8 +76,8 @@ int	main(void)
 	//print numbers and strings
 	int	t_len;
 
-	t_len = ft_printf("Ola %d Porto este e um pequeno teste do %s\n", 42, "David");
-	ft_printf("%d\n", ft_strlen("Ola 42 Porto este e um pequeno teste do David\n"));
+	t_len = ft_printf("Ola %d Porto este e um teste do %s\n", 42, "David");
+	ft_printf("%d\n", ft_strlen("Ola 42 Porto este e um teste do David\n"));
 	ft_printf("%d\n", t_len);
 
 	//print ptr (void *)
