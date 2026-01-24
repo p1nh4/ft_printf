@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
-/*   Updated: 2026/01/23 21:22:19 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/23 23:21:44 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,32 +23,43 @@ static void	ft_init_flags(t_flags *flags)
 	flags->hashtag = 0;
 }
 
-int	ft_printf(const char *format, ...)
+static int	ft_process_format_str(const char **format, va_list args)
 {
-	int		t_len = 0;
-	va_list	args;
+	int		t_len;
 	t_flags	flags;
 
-	if (!format) return (-1);
-	va_start(args, format);
-	while (*format)
+	t_len = 0;
+	while (**format)
 	{
-		if (*format == '%')
+		if (**format == '%')
 		{
-			format++;
+			(*format)++;
 			if (!*format)
 				break ;
 			ft_init_flags(&flags);
-			ft_parse_flags_bonus(&format, &flags);
-			if (*format && ft_strchr("cspdiuxX%", *format))
-				t_len += ft_process_specifier_bonus(*format++, args, &flags);
+			ft_parse_flags_bonus(format, &flags);
+			if (*format && ft_strchr("cspdiuxX%", **format))
+				t_len += ft_process_specifier_bonus(**format++, args, &flags);
 		}
 		else
 		{
-			ft_putchar_fd(*format++, 1);
+			ft_putchar_fd(**format++, 1);
 			t_len++;
 		}
 	}
+	return (t_len);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	int		t_len;
+	va_list	args;
+
+	t_len = 0;
+	if (!format)
+		return (-1);
+	va_start(args, format);
+	t_len += ft_process_format_str(&format, args);
 	va_end(args);
 	return (t_len);
 }

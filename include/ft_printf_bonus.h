@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/19 11:52:47 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/24 17:31:42 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ typedef struct s_flags
 	char	space;
 	char	hashtag;
 }	t_flags;
+
+#ifndef LOWER_BASE
+#define LOWER_BASE "123456789abcdef"
+#endif /* ifndef LOWER_BASE */
+
+#ifndef UPPER_BASE
+#define UPPER_BASE "123456789ABCDEF"
+#endif /* ifndef UPPER_BASE */
 
 size_t	ft_print_char_bonus(int c, t_flags *flags);
 size_t	ft_print_str_bonus(char *s, t_flags *flags);
