@@ -6,16 +6,16 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2026/01/23 19:32:43 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:16:58 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-//(format + 1) nao move o ptr, format++ sim 
+//(format + 1) nao move o ptr, format++ sim
 int	ft_printf(const char *format, ...)
 {
-	int	t_len;
+	int		t_len;
 	va_list	args;
 
 	t_len = 0;
@@ -55,7 +55,7 @@ int	main(void)
 
 	int ret2 = printf(" %u ", 101);
 	printf("\nReturn: %d\n", ret2);
-	
+
 	int r1 = ft_printf(" %u ", 101);
 	printf("\nReturn: %d\n", r1);
 

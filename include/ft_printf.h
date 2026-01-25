@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
-/*   Updated: 2026/01/23 20:34:01 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:15:38 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ size_t	ft_print_hex(unsigned long int n, int is_lower);
 size_t	ft_print_percent(char c);
 size_t	ft_process_specifier(char format, va_list args);
 void	ft_parse_flags_bonus(const char **format, t_flags *flags);
-int	ft_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
 
 #endif

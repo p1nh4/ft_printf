@@ -56,7 +56,7 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 
 	t_len = 0;
-	if (!format)
+	if (!format || (*format == '%' && *(format + 1) == '\0'))
 		return (-1);
 	va_start(args, format);
 	t_len += ft_process_format_str(&format, args);
