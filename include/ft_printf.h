@@ -46,6 +46,6 @@ size_t	ft_print_hex(unsigned long int n, int is_lower);
 size_t	ft_print_percent(char c);
 size_t	ft_process_specifier(char format, va_list args);
 void	ft_parse_flags_bonus(const char **format, t_flags *flags);
-size_t	ft_printf(const char *format, ...);
+int	ft_printf(const char *format, ...);
 
 #endif

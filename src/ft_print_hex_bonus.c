@@ -6,12 +6,12 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
-/*   Updated: 2026/01/24 19:15:26 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/25 16:52:33 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
-#include "ft_print_hex_utils.h"
+#include "ft_printf_bonus_utils.h"
 
 static int	ft_calc_len_params(unsigned long int n, t_flags *flags,
 		int	*n_zeros, int *prefix)
@@ -31,7 +31,7 @@ static int	ft_calc_len_params(unsigned long int n, t_flags *flags,
 }
 
 static void	ft_do_print_hex(unsigned long int n, int is_lower,
-		t_flags *flags, t_hex_params p)
+		t_flags *flags, t_print_params p)
 {
 	if (!flags->minus && (!flags->zeros || flags->precision >= 0))
 		ft_print_padding(p.spaces, ' ');
@@ -53,7 +53,7 @@ static void	ft_do_print_hex(unsigned long int n, int is_lower,
 
 static int	ft_output_hex(unsigned long int n, int is_lower, t_flags *flags)
 {
-	t_hex_params	p;
+	t_print_params	p;
 	int				len;
 
 	len = ft_calc_len_params(n, flags, &p.n_zeros, &p.prefix);
@@ -67,7 +67,7 @@ static int	ft_output_hex(unsigned long int n, int is_lower, t_flags *flags)
 
 size_t	ft_print_hex_bonus(unsigned long int n, int is_lower, t_flags *flags)
 {
-	int		len;	
+	int		len;
 
 	len = ft_output_hex(n, is_lower, flags);
 	return (len);

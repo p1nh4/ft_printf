@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hex_utils.h                               :+:      :+:    :+:   */
+/*   ft_print_uint_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 17:27:27 by davidos-          #+#    #+#             */
-/*   Updated: 2026/01/24 19:04:41 by davidos-         ###   ########.fr       */
+/*   Created: 2026/01/25 16:16:42 by davidos-          #+#    #+#             */
+/*   Updated: 2026/01/25 16:54:02 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINT_HEX_UTILS_H
-# define FT_PRINT_HEX_UTILS_H
+#include "ft_printf_bonus_utils.h"
 
-# include "ft_printf_bonus.h"
-
-typedef struct s_hex_params
+int	ft_get_uint_len(unsigned int n)
 {
-	int	spaces;
-	int	n_zeros;
-	int	prefix;
-}		t_hex_params;
+	int	len;
 
-int		ft_hex_len(unsigned long int n);
-void	ft_print_padding(int count, char c);
-void	ft_print_hex_num(unsigned long int n, char *base);
-void	ft_print_prefix(int is_lower);
+	len = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
 
-#endif
+void	ft_putnbr_uint(unsigned int n)
+{
+	if (n >= 10)
+		ft_putnbr_uint(n / 10);
+	ft_putchar_fd((n % 10) + '0', 1);
+}

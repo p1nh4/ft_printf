@@ -1,37 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_percent_bonus.c                           :+:      :+:    :+:   */
+/*   ft_print_bonus_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
-/*   Updated: 2026/01/25 16:11:12 by davidos-         ###   ########.fr       */
+/*   Created: 2026/01/25 14:38:36 by davidos-          #+#    #+#             */
+/*   Updated: 2026/01/25 16:18:21 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_bonus.h"
+#include "ft_printf_bonus_utils.h"
 
-size_t	ft_print_percent_bonus(char c, t_flags *flags)
+void	ft_print_padding(int count, char c)
 {
-	int	spaces;
-	int	i;
-
-	spaces = 0;
-	if (flags->width > 1)
-		spaces = flags->width - 1;
-	if (!flags->minus)
-	{
-		i = spaces;
-		while (i-- > 0)
-			ft_putchar_fd(' ', 1);
-	}
-	ft_putchar_fd(c, 1);
-	if (flags->minus)
-	{
-		i = spaces;
-		while (i-- > 0)
-			ft_putchar_fd(' ', 1);
-	}
-	return (1 + spaces);
+	while (count-- > 0)
+		ft_putchar_fd(c, 1);
 }

@@ -6,66 +6,54 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
-/*   Updated: 2025/12/17 00:00:00 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/25 16:46:43 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
+#include "ft_printf_bonus_utils.h"
 
-static int	ft_get_uint_len(unsigned int n)
+static int	ft_calc_uint_params(unsigned long num, t_flags *flags,
+		t_print_params *p)
 {
+	int	n_digits;
 	int	len;
 
-	len = 0;
-	if (n == 0)
-		return (1);
-	while (n > 0)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
+	n_digits = ft_get_uint_len(num);
+	if (flags->precision == 0 && num == 0)
+		n_digits = 0;
+	p->n_zeros = 0;
+	if (flags->precision > n_digits)
+		p->n_zeros = flags->precision - n_digits;
+	len = n_digits + p->n_zeros;
+	p->spaces = 0;
+	if (flags->width > len)
+		p->spaces = flags->width - len;
+	return (len + p->spaces);
 }
 
-static void	ft_print_padding(int count, char c)
+static void	ft_do_print_uint(unsigned long num, t_flags *flags,
+		t_print_params p)
 {
-	while (count-- > 0)
-		ft_putchar_fd(c, 1);
-}
-
-static void	ft_putnbr_uint(unsigned int n)
-{
-	if (n >= 10)
-		ft_putnbr_uint(n / 10);
-	ft_putchar_fd((n % 10) + '0', 1);
+	if (!flags->minus && (!flags->zeros || flags->precision >= 0))
+		ft_print_padding(p.spaces, ' ');
+	if (!flags->minus && flags->zeros && flags->precision < 0)
+		ft_print_padding(p.spaces, '0');
+	ft_print_padding(p.n_zeros, '0');
+	if (!(flags->precision == 0 && num == 0))
+		ft_putnbr_uint(num);
+	if (flags->minus)
+		ft_print_padding(p.spaces, ' ');
 }
 
 size_t	ft_print_uint_bonus(unsigned int n, t_flags *flags)
 {
-	int	n_digits;
-	int	n_zeros;
-	int	spaces;
-	int	len;
+	t_print_params	p;
+	unsigned long	num;
+	int				len;
 
-	n_digits = ft_get_uint_len(n);
-	if (flags->precision == 0 && n == 0)
-		n_digits = 0;
-	n_zeros = 0;
-	if (flags->precision > n_digits)
-		n_zeros = flags->precision - n_digits;
-	len = n_digits + n_zeros;
-	spaces = 0;
-	if (flags->width > len)
-		spaces = flags->width - len;
-	len += spaces;
-	if (!flags->minus && (!flags->zeros || flags->precision >= 0))
-		ft_print_padding(spaces, ' ');
-	if (!flags->minus && flags->zeros && flags->precision < 0)
-		ft_print_padding(spaces, '0');
-	ft_print_padding(n_zeros, '0');
-	if (!(flags->precision == 0 && n == 0))
-		ft_putnbr_uint(n);
-	if (flags->minus)
-		ft_print_padding(spaces, ' ');
+	num = n;
+	len = ft_calc_uint_params(num, flags, &p);
+	ft_do_print_uint(num, flags, p);
 	return (len);
 }

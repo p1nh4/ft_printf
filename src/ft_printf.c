@@ -13,9 +13,9 @@
 #include "ft_printf.h"
 
 //(format + 1) nao move o ptr, format++ sim 
-size_t	ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	size_t	t_len;
+	int	t_len;
 	va_list	args;
 
 	t_len = 0;

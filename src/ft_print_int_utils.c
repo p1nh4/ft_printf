@@ -1,44 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hex_utils.c                               :+:      :+:    :+:   */
+/*   ft_print_int_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 17:17:08 by davidos-          #+#    #+#             */
-/*   Updated: 2026/01/25 16:18:34 by davidos-         ###   ########.fr       */
+/*   Created: 2026/01/25 14:02:00 by davidos-          #+#    #+#             */
+/*   Updated: 2026/01/25 16:53:50 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus_utils.h"
 
-int	ft_hex_len(unsigned long int n)
+int	ft_get_num_len(long n)
 {
 	int	len;
 
 	len = 0;
 	if (n == 0)
 		return (1);
+	if (n < 0)
+		n = -n;
 	while (n > 0)
 	{
-		n /= 16;
+		n /= 10;
 		len++;
 	}
 	return (len);
 }
 
-void	ft_print_hex_num(unsigned long int n, char *base)
+void	ft_print_sign(int is_neg, t_flags *flags)
 {
-	if (n >= 16)
-		ft_print_hex_num(n / 16, base);
-	ft_putchar_fd(base[n % 16], 1);
+	if (is_neg)
+		ft_putchar_fd('-', 1);
+	else if (flags->plus)
+		ft_putchar_fd('+', 1);
+	else if (flags->space)
+		ft_putchar_fd(' ', 1);
 }
 
-void	ft_print_prefix(int is_lower)
+void	ft_putnbr_long(long n)
 {
-	ft_putchar_fd('0', 1);
-	if (is_lower)
-		ft_putchar_fd('x', 1);
-	else
-		ft_putchar_fd('X', 1);
+	if (n < 0)
+		n = -n;
+	if (n >= 10)
+		ft_putnbr_long(n / 10);
+	ft_putchar_fd((n % 10) + '0', 1);
 }

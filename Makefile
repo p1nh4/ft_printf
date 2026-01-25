@@ -22,10 +22,15 @@ BONUS_SRC 	:= $(SRC_DIR)/ft_parse_flags_bonus.c					\
 			   $(SRC_DIR)/ft_process_specifier_bonus.c				\
 			   $(SRC_DIR)/ft_print_char_bonus.c						\
 			   $(SRC_DIR)/ft_print_hex_bonus.c						\
+			   $(SRC_DIR)/ft_print_hex_utils.c						\
 			   $(SRC_DIR)/ft_print_int_bonus.c						\
+			   $(SRC_DIR)/ft_print_int_utils.c						\
 			   $(SRC_DIR)/ft_print_percent_bonus.c					\
+			   $(SRC_DIR)/ft_print_ptr_bonus.c						\
 			   $(SRC_DIR)/ft_print_str_bonus.c						\
 			   $(SRC_DIR)/ft_print_uint_bonus.c						\
+			   $(SRC_DIR)/ft_print_uint_utils.c						\
+			   $(SRC_DIR)/ft_print_bonus_utils.c					\
 			   $(SRC_DIR)/ft_printf_bonus.c							
 
 INCLUDES	:= -I$(INCLUDE_DIR) -I$(LIB)
