@@ -51,6 +51,16 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	mkdir -p $(OBJ_DIR)
 	$(CC) $(C_FLAGS) $(INCLUDES) -c -o $@ $<
 
+test : $(NAME)
+	cc -Wall -Wextra -Werror tests/test_printf.c -L. -lftprintf -I include -o test_printf
+	./test_printf
+	rm -f test_printf
+
+test_special : $(NAME)
+	cc -Wall -Wextra -Werror tests/test_casos_especiais.c -L. -lftprintf -I include -o test_special
+	./test_special
+	rm -f test_special
+
 bonus : .bonus
 
 .bonus : $(BONUS_OBJ) $(LIBFT)

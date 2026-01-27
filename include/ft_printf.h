@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 20:13:19 by davidos-          #+#    #+#             */
-/*   Updated: 2026/01/25 17:15:38 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/27 18:46:05 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,6 @@
 #  define UPPER_CASE 0
 # endif /* ifndef UPPER_CASE */
 
-typedef struct s_flags
-{
-	int		width;
-	int		precision;
-	char	plus;
-	char	minus;
-	char	zeros;
-	char	space;
-	char	hashtag;
-
-}	t_flags;
-
 size_t	ft_print_char(int c);
 size_t	ft_print_str(char *s);
 size_t	ft_print_ptr(void *ptr);
@@ -45,7 +33,6 @@ size_t	ft_print_uint(unsigned int ptr);
 size_t	ft_print_hex(unsigned long int n, int is_lower);
 size_t	ft_print_percent(char c);
 size_t	ft_process_specifier(char format, va_list args);
-void	ft_parse_flags_bonus(const char **format, t_flags *flags);
 int		ft_printf(const char *format, ...);
 
 #endif

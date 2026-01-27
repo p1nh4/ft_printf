@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 21:35:17 by davidos-          #+#    #+#             */
-/*   Updated: 2026/01/23 20:07:28 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/27 18:42:12 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ size_t	ft_print_ptr(void *p)
 {
 	unsigned long int	temp;
 	size_t				len;
-	void				*ptr_hex;
 
-	ptr_hex = (void *)p;
-	if (!ptr_hex)
+	if (!p)
 	{
 		ft_putstr_fd("(nil)", 1);
 		return (5);

@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 17:28:56 by davidos-          #+#    #+#             */
-/*   Updated: 2025/11/30 19:50:13 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/27 18:39:34 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_print_int(int n)
 	char	*str_n;
 
 	str_n = ft_itoa(n);
+	if (!str_n)
+		return (0);
 	ft_putstr_fd(str_n, 1);
 	len = ft_strlen(str_n);
 	free(str_n);

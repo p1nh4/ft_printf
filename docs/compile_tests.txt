@@ -1,0 +1,19 @@
+
+--------- TESTES ---------
+# Compila
+cc -Wall -Wextra -Werror tests/test_printf.c -L. -lftprintf -I include -o test_printf
+
+# Executa
+./test_printf
+
+ou 
+#Compilar e executar via Makefile
+make test -- e removido no fim ./test_printf
+
+--------- valgrind --------
+# executar compilação
+cc -Wall -Wextra -Werror tests/test_printf.c -L. -lftprintf -I include -o test_printf
+
+# valgrind 
+valgrind --leak-check=full --show-leak-kinds=all ./test_printf
+

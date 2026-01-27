@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:09:09 by davidos-          #+#    #+#             */
-/*   Updated: 2026/01/23 20:38:02 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/27 18:43:32 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,12 @@ static size_t	ft_putnbr_printf(long int num)
 size_t	ft_print_uint(const unsigned int ptr)
 {
 	size_t			len;
-	unsigned int	num_uint;
 
-	num_uint = (unsigned int )ptr;
-	if (num_uint == 0)
+	if (ptr == 0)
 	{
-		ft_putchar_fd(0 + '0', 1);
+		ft_putchar_fd('0', 1);
 		return (1);
 	}
-	len = ft_putnbr_printf(num_uint);
+	len = ft_putnbr_printf(ptr);
 	return (len);
 }
