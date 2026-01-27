@@ -6,14 +6,13 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:52:28 by davidos-          #+#    #+#             */
-/*   Updated: 2026/01/27 21:45:34 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/27 22:23:53 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 //(format + 1) nao move o ptr, format++ sim
-
 static int	ft_process_format(const char **format, va_list args)
 {
 	int	t_len;
@@ -25,10 +24,7 @@ static int	ft_process_format(const char **format, va_list args)
 		{
 			(*format)++;
 			if (!**format || !ft_strchr("cspdiuxX%", **format))
-			{
-				va_end(args);
 				return (-1);
-			}
 			t_len += ft_process_specifier(**format, args);
 		}
 		else

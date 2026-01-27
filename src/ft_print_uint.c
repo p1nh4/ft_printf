@@ -6,7 +6,7 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:09:09 by davidos-          #+#    #+#             */
-/*   Updated: 2026/01/27 18:43:32 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/27 22:09:07 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_extract_digit(long int *num, int *len,
 	}
 }
 
-static size_t	ft_putnbr_printf(long int num)
+static size_t	ft_putnbr_u(long int num)
 {
 	int			len;
 	int			zeros;
@@ -51,15 +51,15 @@ static size_t	ft_putnbr_printf(long int num)
 	return (len);
 }
 
-size_t	ft_print_uint(const unsigned int ptr)
+size_t	ft_print_uint(const unsigned int n)
 {
 	size_t			len;
 
-	if (ptr == 0)
+	if (n == 0)
 	{
 		ft_putchar_fd('0', 1);
 		return (1);
 	}
-	len = ft_putnbr_printf(ptr);
+	len = ft_putnbr_u(n);
 	return (len);
 }
