@@ -6,11 +6,25 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 21:35:17 by davidos-          #+#    #+#             */
-/*   Updated: 2026/01/27 18:42:12 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/29 21:34:55 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/**
+ * @brief Imprime um endereço de ponteiro em formato hexadecimal.
+ * 
+ * Esta função imprime um endereço de memória no formato "0x..." em hexadecimal
+ * minúsculo. Trata ponteiros NULL imprimindo "(nil)".
+ * 
+ * Formato de saída:
+ * - Ponteiro válido: "0x" seguido do endereço em hexadecimal
+ * - Ponteiro NULL: "(nil)"
+ * 
+ * @param p Ponteiro cujo endereço será impresso
+ * @return Número de caracteres impressos (5 p/ NULL, len+2 p/ ptrs válidos)
+ */
 
 size_t	ft_print_ptr(void *p)
 {

@@ -6,11 +6,33 @@
 /*   By: davidos- <davidos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 15:28:30 by davidos-          #+#    #+#             */
-/*   Updated: 2026/01/23 20:43:14 by davidos-         ###   ########.fr       */
+/*   Updated: 2026/01/29 21:56:32 by davidos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/**
+ * @brief Processa um especificador de conversão e imprime o resultado.
+ * 
+ * Esta função determina qual tipo de conversão executar com base no
+ * especificador fornecido, extrai o argumento apropriado da lista variável
+ * e chama a função de impressão correspondente.
+ * 
+ * Especificadores suportados:
+ * - %c: caractere (char)
+ * - %s: string (char *)
+ * - %p: ponteiro (void *)
+ * - %d/%i: inteiro com sinal (int)
+ * - %u: inteiro sem sinal (unsigned int)
+ * - %x: hexadecimal minúsculas (unsigned int)
+ * - %X: hexadecimal maiúsculas (unsigned int)
+ * - %%: caractere '%' literal
+ * 
+ * @param format Caractere especificador de conversão
+ * @param args Lista de argumentos variáveis
+ * @return Número de caracteres impressos pela conversão
+ */
 
 size_t	ft_process_specifier(char format, va_list args)
 {
