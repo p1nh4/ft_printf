@@ -5,7 +5,7 @@
 Uma implementação personalizada da função `printf()` da biblioteca padrão C.
 
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Printf.svg" alt="Printf Diagram" width="600"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Printf.svg" alt="Printf Diagram" width="600" style="background-color: white; padding: 20px; border-radius: 8px;"/>
 </p>
 
 **ft_printf** é um projeto do currículo da Escola 42 que recria o comportamento da função padrão `printf()`. 
@@ -71,7 +71,7 @@ Referências completas estão em `docs/`:
 
 ### Uso de IA
 
-**Claude AI** foi usado como assistente de aprendizagem para:
+**AI** foi usado como assistente de aprendizagem para:
 - Simplificar documentação técnica sobre printf e funções variádicas
 - Explicar funcionamento de `va_list`, `va_start`, `va_arg`, `va_end`
 - Debugging (segfaults, memory leaks, conformidade com norma)
@@ -162,5 +162,13 @@ Segue a [Norma 42](https://github.com/42School/norminette):
 - Gestão adequada de erros e memória
 
 ---
+```c
+#include <unistd.h>
 
-**Autor:** [@p1nh4](https://github.com/p1nh4) · 42 Porto
+int main(void)
+{
+    char *autor = "@p1nh4";
+    write(1, autor, 6);  
+    return (0);
+}
+```
