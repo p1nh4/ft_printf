@@ -5,7 +5,7 @@
 Uma implementação personalizada da função `printf()` da biblioteca padrão C.
 
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Printf.svg" alt="Printf Diagram" width="600" style="background-color: white; padding: 20px; border-radius: 8px;"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Printf.svg" alt="Printf Diagram" width="600"/>
 </p>
 
 **ft_printf** é um projeto do currículo da Escola 42 que recria o comportamento da função padrão `printf()`. 
@@ -15,7 +15,10 @@ O projeto está dividido em duas partes:
 - **Obrigatória**: Implementa conversões básicas (`cspdiuxX%`)
 - **Bonus**: Adiciona suporte para flags (`-0.# +`), largura e precisão
 
-O principal desafio deste projeto foi a **parte bonus**, gerir a lógica complexa necessária para lidar com múltiplas combinações de flags e as suas interações com diferentes especificadores de conversão. Compreender como largura, precisão e várias flags afetam a formatação da saída em diferentes tipos de dados exigiu planeamento cuidadoso e testes extensivos.
+O principal desafio deste projeto foi a **parte bonus**, gerir a lógica complexa necessária para lidar 
+com múltiplas combinações de flags e as suas interações com diferentes especificadores de conversão. 
+Compreender como largura, precisão e várias flags afetam a formatação da saída em diferentes tipos de dados 
+exigiu planeamento cuidadoso e testes extensivos.
 
 ## Instructions
 
@@ -161,7 +164,7 @@ Segue a [Norma 42](https://github.com/42School/norminette):
 - Apenas `malloc`, `free`, `write`, `va_*`
 - Gestão adequada de erros e memória
 
----
+## Bom Código!
 ```c
 #include <unistd.h>
 
